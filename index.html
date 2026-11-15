@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La Historia de San Isidro de Heredia: de la Gran Toyopán al presente</title>
+<meta name="description" content="Recorrido interactivo por la historia de San Isidro de Heredia: del paleovolcán Zurquí y la Gran Toyopán a la plaza, el café y las voces de hoy. Un proyecto de la UCASI, realizado por Antropos con la UCR.">
+<meta name="theme-color" content="#0b234f">
+<link rel="canonical" href="https://antropos-amf.github.io/historia-san-isidro/">
+<link rel="icon" href="img/logo-ucasi.jpg">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_CR">
+<meta property="og:title" content="De la Gran Toyopán al presente: historia de San Isidro de Heredia">
+<meta property="og:description" content="500.000 años en un día, nueve capítulos, glosario y las voces de la comunidad.">
+<meta property="og:image" content="https://antropos-amf.github.io/historia-san-isidro/img/macizo.jpg">
+<meta property="og:url" content="https://antropos-amf.github.io/historia-san-isidro/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: un museo comunitario al aire libre: cálido, preciso, honesto sobre lo que se sabe y lo que no.
+   IDEA: un corte estratigráfico del Zurquí: se baja por capas de tiempo, de la lava a la plaza.
+   PICTURE: los cerros del macizo de Barva en capas de niebla; un reloj de 24 h que comprime 500.000 años.
+   COLOUR and TYPE: verde de bosque nuboso profundo, blanco papel, rojo arcilla de Pará Grande, oro de la rana; Newsreader + Public Sans.
+   LAYOUT: portada a sangre, reloj interactivo, capítulos con riel de estratos, vitrina, glosario buscable, pie completo. */
+:root{color-scheme:light dark;
+--bg:light-dark(#fbfbf9,#0c1420);--ink:light-dark(#18202b,#e8edf4);--mute:light-dark(#526073,#a6b4c6);
+--deep:#0b234f;--deep2:#123a6b;--blue:light-dark(#00457c,#8fb8e8);--sky:light-dark(#2f6fb0,#6fa3dc);--clay:light-dark(#a8402a,#e0785e);--gold:#e8b90e;--green:light-dark(#2e7d4f,#6fbf8e);--gold-ink:light-dark(#8a6a00,#f0c93a);
+--card:light-dark(#ffffff,#142034);--line:light-dark(#dde4ee,#263752);--tint:light-dark(#eaf1f8,#101a28)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Public Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:700;line-height:1.08;text-wrap:balance;margin:0 0 .4em}
+h2{font-size:clamp(30px,4.2vw,46px)}h3{font-size:24px}
+a{color:var(--blue)}p{margin:0 0 1em;max-width:68ch}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}.wrap{max-width:1240px;margin:0 auto}
+.small{font-size:14px;color:var(--mute)}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:#1a1405;padding:10px 16px;z-index:60;font-weight:700}.skip:focus{left:8px;top:8px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(11,35,79,.95);backdrop-filter:blur(6px);color:#eef3ee}
+nav .wrap{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;padding:8px max(5vw,16px)}
+nav b{font-family:Newsreader,serif;font-size:19px;margin-right:auto;display:flex;align-items:center;gap:10px}nav b img{width:38px;height:38px;border-radius:50%;background:#fff}
+nav a{color:#eef3ee;text-decoration:none;font-size:15px;padding:10px 2px}
+nav a:hover,nav a:focus-visible{text-decoration:underline}
+nav .play{background:var(--gold);color:#1a1405;border-radius:99px;padding:8px 16px;font-weight:700}
+/* hero */
+.hero{position:relative;background:var(--deep);color:#f3f6fb;overflow:hidden;min-height:min(86vh,760px);display:grid;align-items:end}
+.hero svg{position:absolute;inset:0;width:100%;height:100%}
+.hero .txt{position:relative;padding:clamp(40px,7vw,96px) max(5vw,16px);max-width:1240px;margin:0 auto;width:100%}
+.hero h1{font-size:clamp(40px,7vw,84px);max-width:13ch;margin-bottom:.25em}
+.hero p{font-size:clamp(17px,1.6vw,20px);max-width:52ch;color:#dbe6f3}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:99px;font-weight:700;text-decoration:none;border:2px solid currentColor;color:inherit;background:none;font:inherit;font-weight:700;cursor:pointer}
+.btn.fill{background:var(--gold);border-color:var(--gold);color:#1a1405}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;font-size:15px;color:#c9d7ea}
+.facts b{display:block;font-family:Newsreader,serif;font-size:28px;color:#fff;line-height:1}
+/* reloj */
+.clock{background:linear-gradient(180deg,var(--tint),color-mix(in srgb,var(--gold) 10%,var(--bg)))}
+.cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.fig{position:relative;aspect-ratio:1;max-width:520px;width:100%;margin:auto}.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.evs{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:4px}
+.evs button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:96px 1fr;gap:12px;width:100%;padding:10px 12px;border-radius:10px;cursor:pointer;min-height:44px}
+.evs button:hover,.evs button[aria-pressed=true]{background:var(--card);box-shadow:0 1px 0 var(--line)}
+.evs button:focus-visible{outline:3px solid var(--gold)}
+.evs .h{font-variant-numeric:tabular-nums;font-weight:700;color:var(--blue);white-space:nowrap}
+.bars{display:grid;gap:22px;padding:0 12px}.clock .cgrid{align-items:start}.clock .cgrid>div:last-child{position:sticky;top:90px}.bar .bt{font-weight:700;margin:0 0 6px;font-size:15px}
+.track{position:relative;height:30px;border-radius:99px;background:linear-gradient(90deg,var(--green) 0%,var(--sky) 100%);opacity:.95}
+.zw{position:absolute;top:-5px;bottom:-5px;border:2px solid var(--ink);border-radius:8px;background:rgba(255,255,255,.18)}
+.zl{position:absolute;right:0;top:-24px;font-size:13px;color:var(--mute)}
+.tks{position:relative;height:20px;margin-top:4px}.tk{position:absolute;transform:translateX(-50%);font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tk:first-child{transform:none}.tk:last-child{transform:translateX(-100%)}
+.dot{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:2px solid #fff;padding:0;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.track .dot::after{content:"";position:absolute;inset:-12px}
+.dot.on{width:24px;height:24px;margin:-12px 0 0 -12px;outline:3px solid var(--ink)}
+.dot:focus-visible{outline:3px solid var(--gold)}
+.dot.nat{background:var(--green)}.dot.ind{background:var(--clay)}.dot.col{background:var(--sky)}.dot.rep{background:#0b234f}.dot.hoy{background:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:18px}.legend span{display:flex;align-items:center;gap:6px}.legend .dot{position:static;margin:0;width:12px;height:12px;display:inline-block;box-shadow:none;border:0}
+.readout{font-family:Newsreader,serif;font-size:clamp(22px,2.6vw,30px);line-height:1.2;min-height:3.6em}
+/* capítulos */
+.chap{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(18px,4vw,48px);padding-block:clamp(36px,5vw,64px);border-top:1px solid var(--line)}
+.rail{position:sticky;top:76px;align-self:start}
+.rail .n{font-family:Newsreader,serif;font-size:56px;line-height:1;color:var(--blue)}
+.rail .era{font-weight:700;font-size:15px}.rail .yr{font-size:14px;color:var(--mute)}
+.strata{height:8px;border-radius:4px;margin-top:10px}
+.cols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,3vw,40px);align-items:start}
+figure{margin:0}figure img{width:100%;height:auto;display:block;border-radius:6px;background:var(--tint)}
+figcaption{font-size:14px;color:var(--mute);margin-top:6px}
+.keep{border-left:4px solid var(--gold);background:var(--card);padding:14px 18px;margin:8px 0 16px;border-radius:0 8px 8px 0}
+.keep b{display:block;font-size:14px;color:var(--mute);font-weight:600;margin-bottom:2px}
+.ev{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
+.ev span{font-size:13px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:var(--card)}
+.ev .doc::before{content:"▤ ";color:var(--blue)}.ev .arq::before{content:"◆ ";color:var(--clay)}.ev .oral::before{content:"❝ ";color:var(--green)}.ev .hip::before{content:"? ";color:var(--gold-ink);font-weight:700}.ev .ia::before{content:"✎ ";color:var(--mute)}
+.ev .doc{border-color:color-mix(in srgb,var(--blue) 35%,var(--line))}.ev .arq{border-color:color-mix(in srgb,var(--clay) 35%,var(--line))}.ev .oral{border-color:color-mix(in srgb,var(--green) 35%,var(--line))}.ev .hip{border-color:color-mix(in srgb,var(--gold) 55%,var(--line))}
+.more{font-weight:700}
+/* término del glosario en el texto */
+.t{all:unset;cursor:pointer;border-bottom:2px dotted var(--sky);color:inherit}
+.t:hover,.t:focus-visible{background:color-mix(in srgb,var(--gold) 25%,transparent);outline:none}
+#pop{position:fixed;z-index:50;max-width:360px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.25);padding:16px 18px;display:none}
+#pop h4{margin:0 0 4px;font-family:Newsreader,serif;font-size:21px}#pop p{font-size:15px;margin:0 0 10px}
+#pop .x{position:absolute;top:6px;right:6px;width:40px;height:40px;border:0;background:none;font-size:22px;cursor:pointer;color:var(--mute)}
+#pop a{font-size:15px;font-weight:700;margin-right:14px}
+@media(max-width:600px){#pop{left:8px!important;right:8px;bottom:8px;top:auto!important;max-width:none}}
+/* fuego y agua */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:8px 0 6px}
+.steps button{all:unset;cursor:pointer;border-radius:8px;overflow:hidden;outline-offset:2px;opacity:.55;transition:opacity .3s}
+.steps button[aria-pressed=true]{opacity:1;box-shadow:0 0 0 3px var(--gold)}
+.steps button:focus-visible{outline:3px solid var(--gold)}
+.steps img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.stepcap{min-height:3.2em;font-size:16px}
+/* vitrina */
+.vit{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:12px 0 6px}.vit figure{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px}.vit img{aspect-ratio:4/3;object-fit:contain;background:#f2f0ea}
+details.arch{margin:6px 0 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+details.arch>summary{cursor:pointer;padding:14px 18px;font-weight:700;min-height:44px;list-style-position:inside}
+details.arch>summary:focus-visible{outline:3px solid var(--gold)}
+.archin{padding:0 18px 18px}.archin h4{font-family:Newsreader,serif;font-size:20px;margin:18px 0 8px}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.ag button,.vit button{all:unset;cursor:zoom-in;display:block;border-radius:8px;overflow:hidden;background:#f2f0ea}
+.ag button:focus-visible,.vit button:focus-visible{outline:3px solid var(--gold)}
+.ag img{width:100%;height:150px;object-fit:contain;display:block}
+.ag p{font-size:14px;margin:6px 2px 0;color:var(--mute)}
+#lb{border:0;padding:0;background:#0b130f;color:#eef3ee;max-width:min(1100px,96vw);width:96vw;border-radius:12px}
+#lb::backdrop{background:rgba(0,0,0,.75)}
+#lb img{display:block;width:100%;max-height:72vh;object-fit:contain;background:#f2f0ea}
+#lb .bar{display:flex;gap:10px;align-items:center;padding:12px 14px;flex-wrap:wrap}
+#lb .bar p{flex:1 1 300px;margin:0;font-size:15px}
+#lb .bar button{min-width:44px;min-height:44px;border-radius:99px;border:1px solid #4a6a58;background:none;color:inherit;font:inherit;cursor:pointer}
+.case{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:10px 0 16px}
+.case div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.case b{font-family:Newsreader,serif;font-size:19px;display:block}
+.case span{font-size:15px;color:var(--mute)}
+/* topónimos */
+.names{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.names div{border-top:3px solid var(--clay);padding-top:10px}
+.names b{font-family:Newsreader,serif;font-size:26px;display:block}
+/* voces */
+.voices{background:linear-gradient(160deg,#173d2b,#1f5a3d);color:#eef6f0}.voices a{color:var(--gold)}
+.voices a{color:var(--gold)}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:20px}
+.qs blockquote{margin:0;padding:18px 0 0;border-top:1px solid #3f7a5a}
+.qs p{font-family:Newsreader,serif;font-size:23px;line-height:1.25}
+.qs cite{font-style:normal;font-size:14px;color:#bcd6c5}
+/* comunidades */
+.com{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:16px}
+.com a{display:block;padding:16px;border-radius:10px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--ink);min-height:44px}
+.com a b{display:block;font-family:Newsreader,serif;font-size:21px}.com a span{font-size:14px;color:var(--mute)}
+.com a:hover{border-color:var(--green)}.com a b{color:var(--green)}
+/* juego */
+.game{background:var(--clay);color:#fff8f2}
+.game .cols{align-items:center}
+.game ol{padding-left:1.2em;margin:0}.game li{margin-bottom:8px}
+.game .btn.fill{background:#fff8f2;border-color:#fff8f2;color:#5a1d10}
+/* glosario */
+.gtools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 20px}
+.gtools input{font:inherit;font-size:16px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);min-width:min(320px,100%)}
+.gtools input:focus-visible{outline:3px solid var(--gold)}
+.gl{columns:2 340px;column-gap:40px}
+.gl dl{break-inside:avoid;margin:0 0 18px;padding-top:8px;border-top:1px solid var(--line)}
+.gl dt{font-weight:700;font-size:18px}.gl dd{margin:2px 0 0;font-size:16px}
+.gl dd a{font-size:14px;font-weight:700}
+.gl dl:target{background:color-mix(in srgb,var(--gold) 18%,transparent);border-radius:6px}
+/* método */
+.meth{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.meth div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.meth h3{font-size:20px}
+.open{border-left:4px solid var(--sky)!important}
+.meth h3{color:var(--green)}
+footer{background:#071631;color:#c3d1e6;font-size:15px}
+.who{background:#fff;color:#18202b;border-top:6px solid var(--deep)}.who .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:center}
+.who h2{color:#0b234f;font-size:clamp(26px,3vw,36px)}.who p{color:#3d4b5e}
+.logos{display:flex;flex-wrap:wrap;gap:28px 40px;align-items:center}.logos a{display:block;border-radius:10px;padding:6px}.logos a:focus-visible{outline:3px solid var(--gold)}.logos img{display:block;height:clamp(64px,7vw,86px);width:auto;max-width:100%}.logos img[src*=ucasi]{height:clamp(120px,13vw,160px)}
+@media(max-width:860px){.who .wrap{grid-template-columns:minmax(0,1fr)}}
+footer a{color:#eef3ee}
+.fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
+@media(max-width:860px){.clock .cgrid>div:last-child{position:static}.cgrid,.cols{grid-template-columns:minmax(0,1fr)}.chap{grid-template-columns:minmax(0,1fr)}.rail{position:static;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}.rail .n{font-size:40px}.strata{width:100%}}
+@media(max-width:600px){nav .links{order:3;flex:1 0 100%;overflow-x:auto;white-space:nowrap;padding-bottom:2px}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.evs button{grid-template-columns:82px 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+.mist{animation:drift 40s ease-in-out infinite alternate}@keyframes drift{to{transform:translateX(-60px)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#reloj">Saltar al contenido</a>
+<nav aria-label="Principal"><div class="wrap">
+<b><img src="img/logo-ucasi.jpg" alt="Logo de la UCASI">Historia de San Isidro</b>
+<span class="links">
+<a href="https://historiadesanisidrodeheredia.com/">Sitio principal</a> · <a href="#reloj">El reloj</a> · <a href="#capitulos">Capítulos</a> · <a href="#voces">Voces</a> · <a href="#comunidades">Comunidades</a> · <a href="#glosario">Glosario</a>
+</span>
+<a class="play" href="https://antropos-amf.github.io/juego-gran-toyopan/">Jugar</a>
+</div></nav>
+
+<header class="hero">
+<svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14325c"/><stop offset=".55" stop-color="#4c7cb0"/><stop offset="1" stop-color="#cfe0f0"/></linearGradient>
+<linearGradient id="fog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#eef4fb" stop-opacity=".75"/></linearGradient>
+<linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#0b234f" stop-opacity="0"/><stop offset="1" stop-color="#0b234f" stop-opacity=".95"/></linearGradient>
+</defs>
+<rect width="1440" height="760" fill="url(#sky)"/>
+<circle cx="1290" cy="150" r="54" fill="#f2d76b" opacity=".55"/>
+<!-- perfil reconstruido del paleovolcán (línea punteada) -->
+<path d="M560 330 L930 70 L1300 330" fill="none" stroke="#f4e7c2" stroke-width="2" stroke-dasharray="6 9" opacity=".7"/>
+<text x="948" y="64" fill="#f4e7c2" font-family="Public Sans" font-size="16" opacity=".85">el cono que fue, hace ~500.000 años</text>
+<path d="M0 360 C120 330 220 300 330 312 C430 322 520 286 610 296 C700 306 760 262 860 266 C960 270 1020 236 1110 250 C1200 264 1300 300 1440 290 L1440 760 L0 760Z" fill="#86a7cb"/>
+<path class="mist" d="M-80 360 C200 330 420 380 700 350 C980 320 1200 372 1520 340 L1520 420 L-80 420Z" fill="url(#fog)"/>
+<path d="M0 430 C150 392 260 360 380 372 C500 384 560 338 680 344 C800 350 880 310 990 322 C1100 334 1180 372 1300 362 C1380 356 1420 366 1440 370 L1440 760 L0 760Z" fill="#4f78a6"/>
+<path d="M0 520 C180 480 320 470 460 484 C600 498 700 456 840 462 C980 468 1080 500 1220 488 C1320 480 1400 492 1440 496 L1440 760 L0 760Z" fill="#2f6b4b"/>
+<g fill="#1f4d36"><path d="M0 600 C200 570 380 560 560 578 C760 598 960 560 1160 572 C1300 580 1400 590 1440 588 L1440 760 L0 760Z"/>
+<g fill="#173d2b"><path d="M90 578 l14 -40 l14 40z"/><path d="M118 580 l11 -30 l11 30z"/><path d="M1220 574 l15 -44 l15 44z"/><path d="M1252 576 l10 -28 l10 28z"/><path d="M1290 578 l13 -36 l13 36z"/></g></g>
+<rect width="1440" height="760" fill="url(#shade)"/>
+</svg>
+<div class="txt">
+<h1>De la Gran Toyopán al presente</h1>
+<p>La historia de San Isidro de Heredia empieza en el fuego de un volcán que ya no existe y llega hasta la plaza, el café y las voces de hoy. Recorrela por capas, como quien baja por un corte de tierra.</p>
+<div class="btns"><a class="btn fill" href="#capitulos">Empezar el recorrido</a><a class="btn" href="#reloj">Ver 500.000 años en un día</a></div>
+<div class="facts"><span><b>26,96 km²</b>superficie del cantón</span><span><b>4</b>distritos</span><span><b>1.330–1.390 m</b>sobre el nivel del mar</span><span><b>1905</b>año del cantonato</span></div>
+</div>
+</header>
+
+<main>
+<noscript><p class="band" style="background:var(--tint);margin:0">Esta portada usa JavaScript para el reloj, el glosario y las ventanas de definiciones. Sin él, puede leer todos los capítulos en <a href="https://historiadesanisidrodeheredia.com/historia/">el sitio principal</a>.</p></noscript>
+<section id="reloj" class="band clock"><div class="wrap cgrid">
+<div>
+<h2>Si toda esta historia cupiera en un solo día</h2>
+<p>Imaginá que los 500.000 años desde que el <button class="t" data-g="paleovolcan">paleovolcán</button> Zurquí estaba activo son un solo día: el volcán está a las 00:00 y hoy es la medianoche siguiente, las 24:00. Cada segundo equivale a casi seis años. Casi toda la historia humana cabe en la última media hora, así que abajo hay dos lupas.</p>
+<div class="readout" id="readout" aria-live="polite"></div>
+<ul class="evs" id="evs"></ul>
+<p class="small">Escala: 1 día = 500.000 años; 1 segundo ≈ 5,8 años. AP significa “antes del presente”; en arqueología el presente convencional es 1950, aquí contamos desde 2026 para simplificar. Las fechas antiguas son aproximadas.</p>
+</div>
+<div><div class="bars" id="bars" role="group" aria-label="El día de 500.000 años en tres escalas"></div><div class="legend small"><span><i class="dot nat"></i>naturaleza y primeros pobladores</span><span><i class="dot ind"></i>época indígena</span><span><i class="dot col"></i>Colonia</span><span><i class="dot rep"></i>República y siglo XX</span><span><i class="dot hoy"></i>hoy</span></div></div>
+</div></section>
+
+<section id="capitulos" class="band"><div class="wrap">
+<h2>El recorrido, capa por capa</h2>
+<p>Nueve capítulos, del más antiguo al más reciente. Las palabras con línea punteada abren una explicación breve. Cada capítulo indica de dónde viene lo que sabemos.</p>
+<div class="ev" aria-label="Tipos de evidencia"><span class="doc">Documento de archivo</span><span class="arq">Arqueología</span><span class="oral">Testimonio oral</span><span class="hip">Hipótesis de trabajo</span><span class="ia">Recreación ilustrada</span></div>
+
+<article class="chap" id="c1">
+<div class="rail"><div class="n">1</div><div><div class="era">Territorio</div><div class="yr">hoy</div></div><div class="strata" style="background:#2e7d4f"></div></div>
+<div class="cols"><div>
+<h3>¿Dónde estamos?</h3>
+<p>San Isidro está al noreste de Heredia, en las faldas de las montañas del Parque Nacional Braulio Carrillo. Es un cantón lluvioso, de ríos, cerros y árboles gigantes: el río Tibás lo cruza de noreste a suroeste, le dio su nombre antiguo a la región y en el siglo XIX movió los <button class="t" data-g="beneficio">beneficios</button> de café.</p>
+<p>Sus cuatro distritos son San Isidro, San José, Concepción y San Francisco, este último conocido como La Saca. Hoy el cantón pasa de cafetales a una vida más urbana, sin dejar sus fiestas patronales, rezos y asociaciones de desarrollo.</p>
+<div class="keep"><b>Para recordar</b>Muchos nombres que Octavio Quesada anotó en 1910 al trazar el límite con Santo Domingo siguen en uso: calle de la Quintana, Cuascuá, Tures, el Volador, Pará Blanco.</div>
+<div class="ev"><span class="doc">Informe de límites (1910)</span><span class="oral">Memoria vecinal</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/donde-estamos/">Leer el capítulo completo →</a>
+</div>
+<figure><img src="img/macizo.jpg" alt="Panorama del macizo de Barva desde el sur, con el Volcán Barva y los cerros Chompipe, Delicias, Tibás, Turú, Caricias, Zurquí y Hondura rotulados con su altura" loading="lazy" width="920" height="460"><figcaption>Los cerros del macizo de Barva, con su altitud en metros. Zurquí, Tibás y Turú son restos de un mismo volcán antiguo. Imagen: archivo del proyecto.</figcaption></figure>
+</div></article>
+
+<article class="chap" id="c2">
+<div class="rail"><div class="n">2</div><div><div class="era">Tiempo profundo</div><div class="yr">hace ~500.000 años</div></div><div class="strata" style="background:#7a3b22"></div></div>
+<div class="cols"><div>
+<h3>El volcán que ya no existe</h3>
+<p>La Ruta 32 atraviesa los restos de un volcán extinto que estuvo activo hace unos 400.000 a 500.000 años. Los geólogos lo llaman el “abuelo” del Volcán Barva, que creció encima de él. El Zurquí, Patio de Agua y otros picos son <button class="t" data-g="relicto">relictos</button> de ese único cono.</p>
+<p>¿Quién lo deshizo? El agua. El Braulio Carrillo recibe casi 11 metros de lluvia al año, la segunda cifra más alta del país. Esa lluvia, durante cientos de miles de años, causó <button class="t" data-g="erosion">erosión</button> y deslizamientos hasta borrar el cono. De esa historia de fuego y agua vienen los suelos fértiles y los <button class="t" data-g="acuifero">acuíferos</button> de San Isidro, formados por coladas de lava, <button class="t" data-g="lahar">lahares</button> y depósitos volcánicos.</p>
+<div class="keep"><b>Para recordar</b>En 1909, Octavio Quesada acampó en el Zurquí y escribió que talar el cerro era “un crimen enorme”: antes, dijo, la tierra “sudaba agua”. El Parque Braulio Carrillo se creó casi setenta años después, en 1978.</div>
+<div class="ev"><span class="doc">Informe de Quesada (1910)</span><span class="oral">Rafael Bolaños (2024)</span><span class="ia">Ilustraciones de 2025</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/hace-500000-anos/">Leer el capítulo completo →</a>
+</div>
+<div>
+<p style="font-weight:700;margin-bottom:4px">Del fuego al agua, en cuatro pasos</p>
+<div class="steps" id="steps"></div>
+<p class="stepcap" id="stepcap" aria-live="polite"></p>
+<p class="small">Ilustraciones generadas con IA para el proyecto en 2025. Son una recreación didáctica, no una reconstrucción científica.</p>
+</div>
+</div></article>
+
+<article class="chap" id="c3">
+<div class="rail"><div class="n">3</div><div><div class="era">Primeros pobladores</div><div class="yr">hace 12.000 años</div></div><div class="strata" style="background:#8c6a3c"></div></div>
+<div class="cols"><div>
+<h3>Orígenes lejanos</h3>
+<p>Las primeras personas llegaron a América hace más de 20.000 años desde Asia. En Costa Rica, hallazgos en Turrialba y Sarapiquí muestran gente que vivía de cazar y recolectar hace unos 12.000 años, con <button class="t" data-g="clovis">puntas Clovis</button>.</p>
+<p>En San Isidro, sobre todo en Santa Elena y Pará Grande, hay evidencia de asentamiento de al menos 1000 a.C. El territorio era un corredor de caminos <button class="t" data-g="precolombino">precolombinos</button> hacia Turrialba y Limón.</p>
+</div><div>
+<div class="keep"><b>Lo que cuenta la memoria</b>La tradición oral habla de la Cueva del Indio y del Dueño del Monte. Este capítulo crecerá con fuentes arqueológicas y testimonios.</div>
+<div class="ev"><span class="arq">Arqueología regional</span><span class="oral">Tradición oral</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/origenes-lejanos/">Leer el capítulo completo →</a>
+</div></div></article>
+
+<article class="chap" id="c4">
+<div class="rail"><div class="n">4</div><div><div class="era">Época indígena</div><div class="yr">500 a.C.–1500 d.C.</div></div><div class="strata" style="background:#a8402a"></div></div>
+<div><div class="cols"><div>
+<h3>La Gran Toyopán</h3>
+<p>Durante siglos, esta fue una de las zonas más pobladas del país. La arqueología distingue fases: Pavas (500 a.C.–300 d.C.), Curridabat (300–800 d.C.) y Cartago (800–1500 d.C.), cuando se consolidaron los <button class="t" data-g="cacicazgo">cacicazgos</button>. A esos pueblos los cronistas los llamaron <button class="t" data-g="huetares">huetares</button>.</p>
+<p>En las cartas de Juan Vázquez de Coronado aparece Yurustí, que llegó a su encuentro con unos 35 guerreros. Según el historiador Rafael Bolaños, era un <button class="t" data-g="ibux">ibux</button> subordinado al cacique Garabito, con residencia en Toyopán, en las nubes de Coronado. La “Gran Toyopán” que daría nombre a la región es una <button class="t" data-g="hipotesis">hipótesis de trabajo</button>, no un hecho cerrado.</p>
+<p>Por el camino del <button class="t" data-g="cuascua">Cuascuá</button>, que subía por el Zurquí hacia Guápiles y Matina, circulaban sal, tortuga, plumas, oro y cerámica pintada.</p>
+</div><div>
+<div class="keep"><b>Para recordar</b>En el sitio Pará Grande (Santa Elena), excavado en 2012, apareció un colgante de oro en forma de rana de 41 mm, cerca del ajuar más rico del cementerio. Un fechamiento por <button class="t" data-g="c14">carbono 14</button> lo ubica hacia el año 1030.</div>
+<div class="ev"><span class="arq">Museo Nacional (2012–2013)</span><span class="doc">Cartas de Vázquez de Coronado</span><span class="oral">Rafael Bolaños (2024)</span><span class="hip">Gran Toyopán</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/la-gran-toyopan/">Leer el capítulo completo →</a>
+</div></div>
+<p style="font-weight:700;margin:22px 0 0">Lo que guarda la tierra de Pará Grande (aprox. 900–1150 d.C.)</p>
+<div class="vit">
+<figure><button class="zoom"><img src="img/pg-rana.jpg" alt="Colgante de oro en forma de rana, visto de frente y por detrás" loading="lazy" width="900" height="664"></button><figcaption>Colgante de oro en forma de rana (41 mm). Foto: Museo Nacional, informe 011-2013; mejorada digitalmente.</figcaption></figure>
+<figure><button class="zoom"><img src="img/pg-metate.jpg" alt="Metate de piedra con ocarinas de cerámica sobre el plato, todavía en la excavación" loading="lazy" width="440" height="340"></button><figcaption>Metate con ocarinas encima, tal como apareció. Foto: Museo Nacional (2013).</figcaption></figure>
+<figure><button class="zoom"><img src="img/pg-vasijas.jpg" alt="Vasijas de un mismo entierro: ollitas, un jarrón pintado con cabeza de ave y una olla grande fragmentada" loading="lazy" width="1100" height="578"></button><figcaption>Vasijas de un mismo entierro; las pintadas vienen de Guanacaste. Foto: M. L. Villalobos (2012).</figcaption></figure>
+<figure><button class="zoom"><img src="img/pg-gruposi.jpg" alt="Fragmentos de cerámica con rostros de penachos y soportes de vasijas con figuras modeladas" loading="lazy" width="612" height="538"></button><figcaption>Rostros y soportes del Grupo San Isidro. Foto: M. L. Villalobos (2012).</figcaption></figure>
+</div>
+<div class="case">
+<div><b>Agricultura</b><span><button class="t" data-g="metate">Metates</button>, manos de moler, hachas pulidas y ollas con hollín.</span></div>
+<div><b>Desigualdad</b><span>Más de veinte entierros y 329 objetos. De 189 vasijas, solo 14 son pintadas y traídas de lejos, y 9 de ellas están en un mismo sector, junto al metate labrado, tres <button class="t" data-g="ocarina">ocarinas</button> y la rana de oro.</span></div>
+<div><b>Intercambio lejano</b><span>Cerámica pintada de Guanacaste, oro y <button class="t" data-g="tumbaga">tumbaga</button> de la tradición del sur, coral y una cuenta de piedra verde.</span></div>
+<div><b>Mando y guerra</b><span>Escultura de un guerrero con hacha y cabeza trofeo; cabezas de maza.</span></div>
+<div><b>Estilo propio</b><span>Vasijas con rostros de grandes penachos: el <button class="t" data-g="gruposanisidro">Grupo San Isidro</button>.</span></div>
+<div><b>Antes aún</b><span>Hace unos 2.000 años, agricultores de maíz guardaban cosechas en <button class="t" data-g="botella">pozos de botella</button>.</span></div>
+</div>
+<div class="keep"><b>¿Era ya un cacicazgo?</b>Los informes hablan de una comunidad agrícola con <button class="t" data-g="rango">sociedad de rango</button> e intercambio lejano. Llamarla cacicazgo exigiría saber cuántos pueblos había y si uno mandaba sobre otros: eso aún no se ha investigado. Tampoco conviene llamarla “huetar”: es cinco siglos anterior a ese nombre. El Museo Nacional propone llamar a este periodo <button class="t" data-g="faseheredia">fase Heredia</button>.</div>
+<p class="small">Los sitios no se ubican públicamente: están protegidos por ley y han sufrido <button class="t" data-g="guaquerismo">guaquerismo</button>. Ver las piezas en la <a href="https://historiadesanisidrodeheredia.com/galeria/">galería</a>.</p>
+<details class="arch"><summary>Abrir el archivo de Pará Grande: 16 láminas de los informes arqueológicos</summary><div class="archin"><p class="small">Tocá una imagen para verla en grande. Los créditos van en cada una.</p><h4>El hallazgo</h4><div class="ag"><figure><button class="zoom" data-cap="Excavación de los entierros 1 y 2: las piedras marcaban las fosas. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-excavacion.jpg" alt="Excavación de los entierros 1 y 2: las piedras marcaban las fosas." loading="lazy"></button><p>Excavación de los entierros 1 y 2: las piedras marcaban las fosas.</p></figure><figure><button class="zoom" data-cap="Pozos excavados en el cementerio, con sus capas de relleno. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-pozos.jpg" alt="Pozos excavados en el cementerio, con sus capas de relleno." loading="lazy"></button><p>Pozos excavados en el cementerio, con sus capas de relleno.</p></figure><figure><button class="zoom" data-cap="Montículo de piedras y la cabeza trofeo de piedra en su lugar. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-cabeza-trofeo.jpg" alt="Montículo de piedras y la cabeza trofeo de piedra en su lugar." loading="lazy"></button><p>Montículo de piedras y la cabeza trofeo de piedra en su lugar.</p></figure><figure><button class="zoom" data-cap="El conjunto del metate y, a la derecha, la rana de oro recién hallada, en la mano. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-rana-mano.jpg" alt="El conjunto del metate y, a la derecha, la rana de oro recién hallada, en la mano." loading="lazy"></button><p>El conjunto del metate y, a la derecha, la rana de oro recién hallada, en la mano.</p></figure></div><h4>Lo que acompañaba a los muertos</h4><div class="ag"><figure><button class="zoom" data-cap="Entierro 5: hacha de piedra pulida, ollita con asas y escudilla pintada de tres patas. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-entierro5.jpg" alt="Entierro 5: hacha de piedra pulida, ollita con asas y escudilla pintada de tres patas." loading="lazy"></button><p>Entierro 5: hacha de piedra pulida, ollita con asas y escudilla pintada de tres patas.</p></figure><figure><button class="zoom" data-cap="Entierro 1: ollita, una bola de piedra y un cuenco con rostros modelados en el borde. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-entierro1.jpg" alt="Entierro 1: ollita, una bola de piedra y un cuenco con rostros modelados en el borde." loading="lazy"></button><p>Entierro 1: ollita, una bola de piedra y un cuenco con rostros modelados en el borde.</p></figure><figure><button class="zoom" data-cap="Hacha pulida y vasija de pedestal con figuras en relieve. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-hacha-pedestal.jpg" alt="Hacha pulida y vasija de pedestal con figuras en relieve." loading="lazy"></button><p>Hacha pulida y vasija de pedestal con figuras en relieve.</p></figure><figure><button class="zoom" data-cap="Laja con filo, una olla y un machacador de piedra. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-otros.jpg" alt="Laja con filo, una olla y un machacador de piedra." loading="lazy"></button><p>Laja con filo, una olla y un machacador de piedra.</p></figure><figure><button class="zoom" data-cap="Ocarina con forma de ave, vasijas miniatura y de soportes modelados. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-miniaturas.jpg" alt="Ocarina con forma de ave, vasijas miniatura y de soportes modelados." loading="lazy"></button><p>Ocarina con forma de ave, vasijas miniatura y de soportes modelados.</p></figure></div><h4>Oro, prestigio y objetos de lejos</h4><div class="ag"><figure><button class="zoom" data-cap="La rana de oro (frente y dorso), un fragmento de tumbaga, una cuenta y una figurilla. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-oro.jpg" alt="La rana de oro (frente y dorso), un fragmento de tumbaga, una cuenta y una figurilla." loading="lazy"></button><p>La rana de oro (frente y dorso), un fragmento de tumbaga, una cuenta y una figurilla.</p></figure><figure><button class="zoom" data-cap="Cerámica policroma de Guanacaste-Nicoya, traída de lejos. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-policromos.jpg" alt="Cerámica policroma de Guanacaste-Nicoya, traída de lejos." loading="lazy"></button><p>Cerámica policroma de Guanacaste-Nicoya, traída de lejos.</p></figure><figure><button class="zoom" data-cap="Sello cilíndrico de cerámica, para imprimir diseños. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-sello.jpg" alt="Sello cilíndrico de cerámica, para imprimir diseños." loading="lazy"></button><p>Sello cilíndrico de cerámica, para imprimir diseños.</p></figure></div><h4>Un estilo propio</h4><div class="ag"><figure><button class="zoom" data-cap="Rostros con tocados y penachos del Grupo San Isidro. Las vasijas completas de abajo (e, f) son fotos antiguas publicadas por Lothrop y en los diarios de Tristán. Fuente: Villalobos y Gómez (2012), informe de evaluación arqueológica del sitio Pará Grande. Foto: M. L. Villalobos."><img src="img/pa-gruposi2.jpg" alt="Rostros con tocados y penachos del Grupo San Isidro. Las vasijas completas de abajo (e, f) son fotos antiguas publicadas por Lothrop y en los diarios de Tristán." loading="lazy"></button><p>Rostros con tocados y penachos del Grupo San Isidro. Las vasijas completas de abajo (e, f) son fotos antiguas publicadas por Lothrop y en los diarios de Tristán.</p></figure><figure><button class="zoom" data-cap="Vasijas del Grupo San Isidro y del tipo Metrópoli Tricromo. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-sanisidro-metropoli.jpg" alt="Vasijas del Grupo San Isidro y del tipo Metrópoli Tricromo." loading="lazy"></button><p>Vasijas del Grupo San Isidro y del tipo Metrópoli Tricromo.</p></figure></div><h4>Piedra pulida y tallada</h4><div class="ag"><figure><button class="zoom" data-cap="Escultura de piedra, cabezas talladas, hachas y un metate de patas. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-piedra-pulida.jpg" alt="Escultura de piedra, cabezas talladas, hachas y un metate de patas." loading="lazy"></button><p>Escultura de piedra, cabezas talladas, hachas y un metate de patas.</p></figure><figure><button class="zoom" data-cap="Piedra tallada: laja con filo, lascas y una punta de lanza. Fuente: Valerio (2013), Museo Nacional de Costa Rica, Informe de Arqueología 011-2013. Fotografía del informe tomada por el proyecto con autorización del Museo."><img src="img/pa-lasqueada.jpg" alt="Piedra tallada: laja con filo, lascas y una punta de lanza." loading="lazy"></button><p>Piedra tallada: laja con filo, lascas y una punta de lanza.</p></figure></div></div></details>
+<p style="font-weight:700;margin:22px 0 8px">Nombres que quedaron en el mapa</p>
+<div class="names">
+<div><b>Pará</b><span>“zacate largo”, según Bolaños.</span></div>
+<div><b>Parasito</b><span>“zacate más bajito”.</span></div>
+<div><b>Tures</b><span>asistente de Yurustí; hoy un río, un puente y un distrito.</span></div>
+<div><b>Toyopán</b><span>a veces traducido “lugar de los altares”; su origen sigue en discusión.</span></div>
+</div>
+<p class="small" style="margin-top:10px">Etimologías de fuente oral, sujetas a verificación. Ver <button class="t" data-g="toponimo">topónimo</button>.</p>
+</div></article>
+
+<article class="chap" id="c5">
+<div class="rail"><div class="n">5</div><div><div class="era">Conquista y Colonia</div><div class="yr">siglos XVI–XVII</div></div><div class="strata" style="background:#6b5b4b"></div></div>
+<div class="cols"><div>
+<h3>El reparto y el alférez</h3>
+<p>El 12 de enero de 1569, el gobernador Perafán de Rivera repartió a la población indígena del Valle Central en 108 <button class="t" data-g="encomienda">encomiendas</button>: unas 23.700 personas entregadas a 85 españoles. Entre 1570 y 1575 se concentró a los pueblos en <button class="t" data-g="reduccion">reducciones</button>, como Barva.</p>
+<p>La explotación y las epidemias causaron un descenso enorme. Las estimaciones de la población original chocan entre sí: unas 400.000 personas según William Denevan; 22.700 según el obispo Bernardo Thiel.</p>
+<p>En el siglo XVII se asentaron <button class="t" data-g="criollo">criollos</button> y españoles en el “Rincón de Tibás”. Uno de ellos, el <button class="t" data-g="alferez">alférez real</button> Sebastián de Zamora, llegó a tener una gran <button class="t" data-g="hacienda">hacienda</button>. Su esposa Luisa de Quintana murió en La Quintana en 1723: de ella viene el nombre de esa calle.</p>
+</div><div>
+<div class="keep"><b>Preguntas abiertas</b>¿Cuándo vivió el alférez Sebastián de Zamora? Las fuentes apuntan tanto a 1576 como a fines del siglo XVII. Y Bolaños señala que la familia tuvo familias esclavizadas en Santo Domingo: falta documentarlo en archivo.</div>
+<div class="ev"><span class="doc">Fonseca, Alvarenga y Solórzano (2002)</span><span class="oral">Rafael Bolaños (2024)</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/conquista-y-colonia/">Leer el capítulo completo →</a>
+</div></div></article>
+
+<article class="chap" id="c6">
+<div class="rail"><div class="n">6</div><div><div class="era">Siglo XVIII</div><div class="yr">1710–1801</div></div><div class="strata" style="background:#a07a3c"></div></div>
+<div class="cols"><div>
+<h3>Tabaco y tierras de Tibás</h3>
+<p>Según Bolaños, el tabaco empujó a familias del oeste de Heredia hacia San Isidro, Tures, Pará y La Palma. Vendían a la <button class="t" data-g="factoria">factoría</button> del gobierno; cuando la Corona prohibió sembrar fuera de zonas autorizadas, hubo contrabando por los pasos del Virilla.</p>
+<p>Del 23 al 25 de agosto de 1787, el <button class="t" data-g="juez">juez subdelegado</button> Josef Antonio Oreamuno midió las tierras <button class="t" data-g="realengas">realengas</button> de Tibás y puso cuatro <button class="t" data-g="mojon">mojones</button>, uno en tres higuerones y un cedro. En total, 54 <button class="t" data-g="caballeria">caballerías</button>. Unas 380 personas aportaron dinero para comprarlas en <button class="t" data-g="remate">remate</button>.</p>
+<p>En 1795 el título se declaró de toda la comunidad, como <button class="t" data-g="comun">tierras del común</button>. Lo que faltaba pagar lo adelantaron los cosecheros de tabaco: 255 pesos y 6 reales, devueltos en público el 24 de diciembre de 1796.</p>
+</div><div>
+<div class="keep"><b>Hallazgo del proyecto</b>En una petición de marzo de 1801 aparecen vecinos de “Saca de Agua”: casi treinta años antes de la mención que se creía la primera (1829).</div>
+<div class="ev"><span class="doc">ANCR, Complementario Colonial 3678</span><span class="doc">Quesada (1910)</span><span class="oral">Rafael Bolaños (2024)</span></div>
+<p class="small">El expediente se fotografió completo en 2018. Las transcripciones hechas con <button class="t" data-g="ocr">OCR</button> se siguen cotejando.</p>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/siglo-xviii/">Leer el capítulo completo →</a>
+</div></div></article>
+
+<article class="chap" id="c7">
+<div class="rail"><div class="n">7</div><div><div class="era">Época republicana</div><div class="yr">1818–1896</div></div><div class="strata" style="background:#5d4a33"></div></div>
+<div class="cols"><div>
+<h3>Agua para el café</h3>
+<p>En 1818 un sorteo del ayuntamiento de Heredia fijó nombres de pueblos: el Rincón de Tibás pasó a ser Santo Domingo. Hacia 1830, San Isidro tenía unos 420 habitantes.</p>
+<p>En 1841 el agrimensor Henrique Cooper midió las tierras de Tibás y dejó un <button class="t" data-g="calicanto">mojón de calicanto</button> en las faldas del Zurquí, que todavía se puede visitar. Ese mismo año, el marino William Le Lacheur hizo la primera exportación directa de café de Costa Rica a Londres.</p>
+<p>Los beneficios necesitaban agua. Financiaron una zanja desde el río Tibás con presa y un canal largo; de él salían ramales, las <button class="t" data-g="saca">sacas</button>, para cada beneficio. De ahí, probablemente, el nombre de La Saca.</p>
+<p>El archivo sigue el rastro: “Saca de Agua” ya era un vecindario en 1801; en 1830 la municipalidad de Heredia nombró una comisión para inspeccionar la saca de agua de Santo Domingo y San Pablo; y en 1902 vecinos de Las Cruces se negaron a pagar dos presas de “la saca”, que señalaban como límite con San Isidro.</p>
+<p>La ermita se bendijo en 1863 y San Isidro fue <button class="t" data-g="parroquia">parroquia</button> en 1866. En 1894 se puso la primera piedra del templo neogótico, con estructura metálica traída de Alemania.</p>
+</div><div>
+<figure><img src="img/mojon.jpg" alt="Mojón de piedra cubierto de musgo en el bosque del Zurquí" loading="lazy" width="470" height="725"><figcaption>El mojón de Cooper en el bosque del Zurquí. Foto: archivo del proyecto.</figcaption></figure>
+<div class="keep" style="margin-top:14px"><b>Cuando memoria y archivo no coinciden</b>Vecinos de La Rinconada recuerdan que los mojones se pusieron en 1834 o 1839; el plano dice 1841. Bolaños fecha a Le Lacheur en 1835; la BBC, en 1841. El proyecto deja ambas diferencias a la vista. Sobre La Saca, una vecina rechaza la versión popular de que el nombre viene de “sacar guaro”: el topónimo ya existía en 1801.</div>
+<div class="ev"><span class="doc">Plano de Cooper (1841)</span><span class="doc">Archivo Nacional (1801, 1830, 1902)</span><span class="oral">Vecinos de La Rinconada y San Francisco</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/epoca-republicana/">Leer el capítulo completo →</a>
+</div></div></article>
+
+<article class="chap" id="c8">
+<div class="rail"><div class="n">8</div><div><div class="era">Cantón y siglo XX</div><div class="yr">1896–2011</div></div><div class="strata" style="background:#3d3a34"></div></div>
+<div class="cols"><div>
+<h3>Cuatro solicitudes y un cantón</h3>
+<p>Los vecinos pidieron ser <button class="t" data-g="canton">cantón</button> en 1896, 1903 y 1904, y les dijeron que no. El 13 de julio de 1905, la Ley N.º 40 declaró a San Isidro cantón sexto de Heredia; el primer concejo se reunió el 15 de setiembre.</p>
+<p>En 1909, Santo Domingo quiso correr el límite. Octavio Quesada recorrió la zona con vecinos y un <button class="t" data-g="vaquiano">vaquiano</button>, y en 1910 recomendó mantener la línea de 1856. Si no, San Isidro habría perdido a San Josecito, su iglesia y hasta su cementerio.</p>
+<p>El café mandaba: en 1935 la mitad de la gente vivía en fincas cafetaleras y de 53 beneficios (1887) quedaban seis. La memoria oral recuerda el trabajo infantil desde los 13 años y el de las mujeres; el historiador Lowell Gudmundson lo describe como un <button class="t" data-g="paternalismo">paternalismo</button> que ocultaba el conflicto de clase.</p>
+<p>Luego llegaron la cañería (1924–1928), la Escuela José Martí (1928), la electricidad (1952), la ceniza del Irazú (1963) y el título de ciudad (1970). La población urbana pasó de 26,9 % en 2000 a 94,6 % en 2011.</p>
+</div><div>
+<figure><img src="img/iglesia.jpg" alt="Fotografía antigua en blanco y negro del templo neogótico de San Isidro con gente al frente" loading="lazy" width="1200" height="955"><figcaption>El templo de San Isidro a mediados del siglo XX. Archivo del proyecto; autoría por identificar.</figcaption></figure>
+<div class="ev" style="margin-top:12px"><span class="doc">Ley N.º 40 (1905)</span><span class="doc">Monografía de 1955</span><span class="oral">Entrevistas 2015–2025</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/fundacion-del-canton/">Leer el capítulo completo →</a>
+</div></div></article>
+
+<article class="chap" id="c9">
+<div class="rail"><div class="n">9</div><div><div class="era">Cultura viva</div><div class="yr">hoy</div></div><div class="strata" style="background:#c99a2e"></div></div>
+<div class="cols"><div>
+<h3>Identidad y cultura viva</h3>
+<p>Antes de los camiones, las carretas llevaban el café a los beneficios, leña y repollo al mercado de Heredia, y madera del Zurquí. En cuestas de barro hacían falta hasta ocho <button class="t" data-g="yunta">yuntas</button>; de Parasito y San Luis salían caravanas de 20 a 30 carretas hacia San José.</p>
+<p>Las fiestas se hacían en <button class="t" data-g="enramada">enramadas</button> en la plaza; los <button class="t" data-g="turno">turnos</button>, los salones de baile y el fútbol hicieron comunidad. Y el agua fue punto de encuentro: en la pila de La Rinconada la gente hacía fila desde las 3 de la mañana.</p>
+<div class="ev"><span class="oral">Vecinos de San Isidro y San Francisco</span><span class="oral">Ricardo González (2015)</span></div>
+<a class="more" href="https://historiadesanisidrodeheredia.com/historia/identidad-y-cultura-viva/">Leer el capítulo completo →</a>
+</div>
+<figure><img src="img/boyeros.jpg" alt="Boyero con su yunta y carreta pintada por una calle de San Isidro de Heredia" loading="lazy" width="1200" height="671"><figcaption>La carreta todavía pasa por las calles del cantón. Foto: archivo del proyecto.</figcaption></figure>
+</div></article>
+<p style="margin-top:24px"><a class="more" href="https://historiadesanisidrodeheredia.com/historia/cronologia/">Ver la cronología completa →</a></p>
+</div></section>
+
+<section id="voces" class="band voices"><div class="wrap">
+<h2>Voces de la comunidad</h2>
+<p>Desde 2015 el proyecto ha identificado a más de sesenta personas con memoria del cantón y ha conversado con unas cuarenta: cafetaleros, cogedores, maestras, boyeros, comerciantes. Solo se nombra a quien lo autorizó.</p>
+<div class="qs">
+<blockquote><p>«No hubo grano de oro, lo que hubo fue camellada de los peones.»</p><cite>Vecino de San Isidro, nacido en 1939</cite></blockquote>
+<blockquote><p>«Lo importante para el cafetalero costarricense no era producir café, era garantizar la comercialización.»</p><cite>Rafael Bolaños, historiador de Santo Domingo</cite></blockquote>
+<blockquote><p>«Se murió el Tournón, se murió el Quesada, se murió el fútbol.»</p><cite>Ricardo González, periodista deportivo</cite></blockquote>
+<blockquote><p>«La Saca es conocido desde hace añales.»</p><cite>Vecina de San Francisco</cite></blockquote>
+</div>
+<p style="margin-top:24px"><a href="https://historiadesanisidrodeheredia.com/voces-de-la-comunidad/">Conocer la metodología y las voces →</a></p>
+</div></section>
+
+<section id="comunidades" class="band"><div class="wrap">
+<h2>Historia por comunidad</h2>
+<p>Cada comunidad tiene su propia capa de memoria. Elegí la tuya.</p>
+<div class="com">
+<a href="https://historiadesanisidrodeheredia.com/por-comunidad/san-isidro-centro/"><b>San Isidro Centro</b><span>sede municipal, templo y plaza</span></a>
+<a href="https://historiadesanisidrodeheredia.com/por-comunidad/santa-elena/"><b>Santa Elena</b><span>Pará Grande y “el común”</span></a>
+<a href="https://historiadesanisidrodeheredia.com/por-comunidad/san-josecito/"><b>San Josecito</b><span>el límite de 1909</span></a>
+<a href="https://historiadesanisidrodeheredia.com/por-comunidad/concepcion/"><b>Concepción</b><span>transición hacia el bosque</span></a>
+<a href="https://historiadesanisidrodeheredia.com/por-comunidad/santa-cecilia/"><b>Santa Cecilia</b><span>fiestas y asociaciones</span></a>
+<a href="https://historiadesanisidrodeheredia.com/por-comunidad/san-francisco/"><b>San Francisco</b><span>La Saca, el agua y los salones</span></a>
+</div>
+</div></section>
+
+<section class="band game"><div class="wrap cols">
+<div>
+<h2>Jugá la historia: Los Mojones del Alférez</h2>
+<p>Un juego educativo en 3D, gratis, para computadora, teléfono o tableta. Separa con claridad lo documentado, el testimonio oral y la ficción.</p>
+<div class="btns"><a class="btn fill" href="https://antropos-amf.github.io/juego-gran-toyopan/">Empezar a jugar</a><a class="btn" href="https://historiadesanisidrodeheredia.com/juego-mojones-del-alferez/">Sobre el juego</a></div>
+</div>
+<ol>
+<li><b>Los mojones del alférez.</b> El rincón de Tibás en el siglo XVII y el camino del Cuascuá.</li>
+<li><b>La Gran Toyopán.</b> Su gente, palabras huetares y lo que cambió con los nuevos mojones.</li>
+<li><b>El agua del Zurquí (1909).</b> Un cerro talado, nacientes que se secan y la advertencia de Quesada.</li>
+</ol>
+</div></section>
+
+<section id="metodo" class="band"><div class="wrap">
+<h2>Cómo sabemos lo que sabemos</h2>
+<p>Este proyecto se hace con la comunidad, no solo sobre ella. Usa la <button class="t" data-g="iap">Investigación Acción Participativa</button>, que combina <button class="t" data-g="historiaoral">historia oral</button>, <button class="t" data-g="etnografia">etnografía</button>, archivos y herramientas digitales.</p>
+<div class="meth">
+<div><h3>Cruzar fuentes</h3><p>Cada entrevista se transcribe, se codifica por temas y se contrasta con documentos de archivo.</p></div>
+<div><h3>Nombrar la duda</h3><p>Cuando la memoria y el papel no coinciden, se marca como pregunta abierta en lugar de elegir una versión.</p></div>
+<div><h3>Cuidar a las personas</h3><p>Los temas delicados no se publican, y los audios se publican solo con consentimiento de cada persona.</p></div>
+<div class="open"><h3>Preguntas abiertas</h3><p>¿1835 o 1841 para Le Lacheur? ¿Fue la Gran Toyopán una unidad política? ¿Qué pasó en los setenta años entre la advertencia de Quesada y el parque de 1978?</p></div>
+</div>
+</div></section>
+
+<section id="glosario" class="band" style="background:var(--tint)"><div class="wrap">
+<h2>Glosario</h2>
+<p>Las palabras técnicas del recorrido, explicadas en pocas líneas. Cada una lleva al capítulo donde aparece.</p>
+<div class="gtools"><label for="gq" class="small">Buscar</label><input id="gq" type="search" placeholder="Ej.: encomienda, lahar, saca" autocomplete="off"><span class="small" id="gn"></span></div>
+<div class="gl" id="gl"></div>
+</div></section>
+
+<section class="band"><div class="wrap cols">
+<div><h2>¿Tenés una foto, un papel o un recuerdo?</h2>
+<p>El proyecto busca especialmente voces de Santa Elena, Concepción y San Josecito, y de mujeres que trabajaron en el café. Cada aporte puede corregir o ampliar esta historia.</p></div>
+<div class="btns" style="align-self:center"><a class="btn fill" style="background:var(--clay);border-color:var(--clay);color:#fff" href="https://historiadesanisidrodeheredia.com/colabora-con-la-investigacion/">Colaborar con la investigación</a><a class="btn" href="https://historiadesanisidrodeheredia.com/galeria/">Ver la galería</a></div>
+</div></section>
+</main>
+
+<section class="band who" aria-label="Quiénes hacen el proyecto"><div class="wrap"><div><h2>Un proyecto de la comunidad</h2><p>Una iniciativa de la Unión Cantonal de Asociaciones de Desarrollo de San Isidro (UCASI), realizada por Antropos, con la colaboración académica de la Universidad de Costa Rica.</p></div><div class="logos"><a href="https://historiadesanisidrodeheredia.com/sobre-el-proyecto/"><img src="img/logo-ucasi.jpg" alt="Unión Cantonal de Asociaciones de Desarrollo de San Isidro (UCASI)"></a><a href="https://antropos.app"><img src="img/logo-antropos.png" alt="Antropos, Antropología y Gestión Socio-Cultural"></a></div></div></section>
+<footer class="band"><div class="wrap fcols">
+<div><b style="font-family:Newsreader,serif;font-size:22px;color:#fff">La Historia de San Isidro de Heredia</b><p>Una iniciativa de la UCASI, realizada por Antropos, con la colaboración académica de la Universidad de Costa Rica. Proyecto “De la Gran Toyopán al Presente”.</p></div>
+<div><b>Historia</b><ul>
+<li><a href="https://historiadesanisidrodeheredia.com/historia/">Inicio de la historia</a></li>
+<li><a href="https://historiadesanisidrodeheredia.com/historia/cronologia/">Cronología</a></li>
+<li><a href="https://historiadesanisidrodeheredia.com/galeria/">Galería</a></li></ul></div>
+<div><b>Proyecto</b><ul>
+<li><a href="https://historiadesanisidrodeheredia.com/sobre-el-proyecto/">Sobre el proyecto</a></li>
+<li><a href="https://historiadesanisidrodeheredia.com/colabora-con-la-investigacion/">Colaborá</a></li>
+<li><a href="https://antropos.app">Antropos</a></li></ul></div>
+<div class="small" style="color:#9fb2a6">Fotos: archivo del proyecto salvo indicación. © 2026</div>
+</div></footer>
+
+<dialog id="lb" aria-label="Imagen ampliada"><img id="lbi" alt=""><div class="bar"><button id="lbp" aria-label="Anterior">‹</button><p id="lbc"></p><button id="lbn" aria-label="Siguiente">›</button><button id="lbx" aria-label="Cerrar">×</button></div></dialog>
+<div id="pop" role="dialog" aria-modal="false" aria-labelledby="poph"><button class="x" aria-label="Cerrar">×</button><h4 id="poph"></h4><p id="popp"></p><a id="popg" href="#glosario">En el glosario</a><a id="popc" href="#">Profundizar</a></div>
+
+<script>
+{
+const S='https://historiadesanisidrodeheredia.com/historia/';
+const C={ub:'donde-estamos/',vol:'hace-500000-anos/',ori:'origenes-lejanos/',toy:'la-gran-toyopan/',col:'conquista-y-colonia/',x18:'siglo-xviii/',rep:'epoca-republicana/',can:'fundacion-del-canton/',cul:'identidad-y-cultura-viva/'};
+const P={sobre:'https://historiadesanisidrodeheredia.com/sobre-el-proyecto/',voces:'https://historiadesanisidrodeheredia.com/voces-de-la-comunidad/'};
+// [id, término, definición, capítulo]
+const G=[
+['acuifero','Acuífero','Capa de roca o suelo que guarda agua subterránea y la entrega a nacientes y pozos. En San Isidro se formaron sobre depósitos volcánicos.','vol'],
+['alferez','Alférez real','Cargo honorífico colonial, una especie de abanderado del rey en un cabildo. Sebastián de Zamora, uno de los primeros colonos de Tibás, lo tuvo.','col'],
+['beneficio','Beneficio de café','Planta donde se procesa el grano: se despulpa, se lava y se seca. Necesitaba mucha agua, por eso se instalaban cerca de ríos y zanjas.','rep'],
+['botella','Pozo o tumba de botella','Hueco excavado con boca estrecha y fondo ancho para guardar cosechas; a veces se usó como tumba. En Santa Elena se rescataron tres.','toy'],
+['caballeria','Caballería','Medida colonial de superficie para tierras agrícolas. Las tierras realengas de Tibás medidas en 1787 sumaban 54 caballerías.','x18'],
+['cacicazgo','Cacicazgo','Sociedad organizada bajo un jefe o cacique, con jerarquías, territorio y redes de intercambio. En el Valle Central se consolidaron entre 800 y 1500 d.C.','toy'],
+['calicanto','Mojón de calicanto','Señal de límite hecha de piedra unida con mortero de cal. El de Cooper (1841) sigue en pie en el bosque del Zurquí.','rep'],
+['c14','Carbono 14 (radiocarbono)','Método que fecha restos orgánicos, como carbón, midiendo cuánto carbono radiactivo les queda. En Pará Grande dio una fecha cercana al año 1030.','toy'],
+['faseheredia','Fase Heredia','Nombre que propone el Museo Nacional para el periodo de 800 a 1200 d.C. en el Valle Central: poblados extensos, con zonas de vivienda y de entierro, e intercambio entre regiones.','toy'],
+['rango','Sociedad de rango','Sociedad donde algunas personas o familias tienen más prestigio y acceso a bienes escasos, lo que se nota, por ejemplo, en tumbas más ricas. No implica necesariamente un jefe sobre varios pueblos.','toy'],
+['tumbaga','Tumbaga','Aleación de oro y cobre usada por orfebres indígenas desde Colombia hasta Costa Rica.','toy'],
+['canton','Cantón y cantonato','El cantón es la división administrativa con municipalidad propia; el cantonato es el acto de crearlo. San Isidro lo logró en 1905, a la cuarta solicitud.','can'],
+['clovis','Puntas Clovis','Puntas de piedra tallada de los primeros cazadores de América, con una acanaladura típica en la base. Se hallaron en Turrialba.','ori'],
+['comun','Tierras del común','Tierras de uso colectivo para sacar leña, frutas y plantas medicinales. En Santa Elena todavía llaman a un lugar “el común”.','x18'],
+['criollo','Criollo','Persona de ascendencia española nacida en América.','col'],
+['cuascua','Cuascuá','Antiguo camino indígena que unía el Pacífico con el Caribe pasando por Santo Domingo, Santa Elena y el Zurquí. Aparece en planos de 1841 y 1856.','toy'],
+['encomienda','Encomienda','Sistema colonial que entregaba grupos indígenas a un español, quien cobraba tributo en trabajo y bienes. Se otorgaba “por dos vidas”.','col'],
+['enramada','Enramada','Estructura techada con cañas y ramas, levantada en la plaza para fiestas y turnos.','cul'],
+['erosion','Erosión','Desgaste del terreno por agua, viento o gravedad. La lluvia del Braulio Carrillo borró poco a poco el cono del paleovolcán.','vol'],
+['etnografia','Etnografía','Método de la antropología que estudia una comunidad conviviendo con ella, observando y conversando.','sobre'],
+['factoria','Factoría de tabaco','Oficina del gobierno colonial que compraba el tabaco a los cosecheros, con monopolio sobre su venta.','x18'],
+['gruposanisidro','Grupo San Isidro','Estilo cerámico de la parte alta del río Virilla, con vasijas de rostros con grandes penachos, hallado en Pará Grande.','toy'],
+['guaquerismo','Guaquerismo','Saqueo de sitios arqueológicos para vender piezas. Muchos objetos de la zona terminaron en colecciones extranjeras.','toy'],
+['hacienda','Hacienda','Gran propiedad rural. La de los Zamora se extendía de Santa Elena al Hospital de Heredia.','col'],
+['historiaoral','Historia oral','Reconstrucción del pasado a partir de entrevistas y recuerdos de las personas. Se contrasta con documentos.','voces'],
+['huetares','Huetares','Nombre que los cronistas españoles dieron a los pueblos del Valle Central del periodo Cartago. Su lengua se perdió, pero dejó nombres de lugares.','toy'],
+['hipotesis','Hipótesis de trabajo','Idea provisional que orienta la investigación mientras se busca confirmarla o descartarla. La “Gran Toyopán” lo es.','toy'],
+['iap','Investigación Acción Participativa (IAP)','Forma de investigar en la que la comunidad participa en todo el proceso y el conocimiento se usa para fortalecerla.','sobre'],
+['ibux','Ibux','Según Rafael Bolaños, jefe local subordinado a un gran cacique. Yurustí era ibux bajo Garabito.','toy'],
+['juez','Juez subdelegado','Funcionario colonial con poder delegado para medir tierras y resolver sobre ellas. Josef Antonio Oreamuno midió Tibás en 1787.','x18'],
+['lahar','Lahar','Flujo de lodo y escombros volcánicos que baja por las laderas, muchas veces arrastrado por lluvias. Ayudó a formar el suelo de San Isidro.','vol'],
+['metate','Metate','Piedra para moler maíz y otros granos. Algunos eran ceremoniales y tallados, como el del búho hallado en San Isidro en 1932.','toy'],
+['mojon','Mojón','Señal fija (piedra, árbol o construcción) que marca un límite de tierra. En 1787 uno fueron tres higuerones y un cedro.','x18'],
+['ocarina','Ocarina','Pequeño instrumento de viento de cerámica, a veces con forma de ave. Aparecieron en tumbas de Pará Grande.','toy'],
+['ocr','OCR','Reconocimiento óptico de caracteres: programas que convierten la imagen de un texto en texto editable. Siempre hay que revisar sus errores.','x18'],
+['paleovolcan','Paleovolcán','Volcán muy antiguo, extinto y casi borrado por la erosión. El del Zurquí estuvo activo hace unos 400.000–500.000 años.','vol'],
+['parroquia','Ermita y parroquia','La ermita es una capilla sin cura propio; la parroquia tiene sacerdote y territorio. San Isidro pasó de una a otra entre 1863 y 1866.','rep'],
+['paternalismo','Paternalismo','Relación en que el patrón trata a sus trabajadores con favores y cercanía personal, lo que suaviza o esconde la desigualdad entre ellos.','can'],
+['precolombino','Precolombino','Anterior a la llegada de Colón y los europeos a América (1492).','ori'],
+['realengas','Tierras realengas','Tierras que pertenecían a la Corona española y podían venderse en remate.','x18'],
+['reduccion','Reducción','Pueblo donde se concentraba por la fuerza a la población indígena para controlarla y evangelizarla. Barva fue una.','col'],
+['relicto','Picos relictos','Cerros que son restos sobrevivientes de una forma mayor. El Zurquí, el Tibás y el Turú son relictos del mismo volcán.','vol'],
+['remate','Remate','Subasta pública. En 1788 se ordenó rematar las tierras realengas de Tibás a 30 tostones la caballería.','x18'],
+['saca','Saca de agua','Ramal que se desviaba de una zanja o canal para llevar agua a un beneficio. Probable origen del nombre de La Saca (San Francisco).','rep'],
+['toponimo','Topónimo','Nombre propio de un lugar. Los topónimos huetares, como Pará o Tures, sobrevivieron a la lengua que los creó.','toy'],
+['turno','Turno','Fiesta popular para recaudar fondos, con comidas, juegos y baile, muchas veces organizada por la iglesia.','cul'],
+['vaquiano','Vaquiano (baquiano)','Persona que conoce muy bien los caminos y el terreno de una zona y sirve de guía.','can'],
+['yunta','Yunta','Par de bueyes unidos por el yugo para tirar de la carreta.','cul']
+];
+const url=k=>C[k]?S+C[k]:P[k];
+const byId=Object.fromEntries(G.map(g=>[g[0],g]));
+// glosario
+const gl=document.getElementById('gl'),gq=document.getElementById('gq'),gn=document.getElementById('gn');
+const sorted=[...G].sort((a,b)=>a[1].localeCompare(b[1],'es'));
+gl.innerHTML=sorted.map(g=>`<dl id="g-${g[0]}"><dt>${g[1]}</dt><dd>${g[2]} <a href="${url(g[3])}">Profundizar →</a></dd></dl>`).join('');
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const filt=()=>{const q=norm(gq.value.trim());let n=0;sorted.forEach(g=>{const ok=!q||norm(g[1]+' '+g[2]).includes(q);document.getElementById('g-'+g[0]).hidden=!ok;n+=ok});gn.textContent=n+' de '+G.length+' términos'};
+gq.addEventListener('input',filt);filt();
+// popover
+const pop=document.getElementById('pop');let last=null;
+const close=()=>{pop.style.display='none';if(last)last.focus();last=null};
+document.querySelectorAll('.t').forEach(b=>{b.setAttribute('aria-haspopup','dialog');b.addEventListener('click',e=>{
+const g=byId[b.dataset.g];if(!g)return;last=b;
+document.getElementById('poph').textContent=g[1];document.getElementById('popp').textContent=g[2];
+document.getElementById('popg').href='#g-'+g[0];const pc=document.getElementById('popc');pc.href=url(g[3]);
+pc.textContent=C[g[3]]?'Profundizar en el capítulo':'Profundizar';
+pop.style.display='block';place();pop.querySelector('.x').focus({preventScroll:true});e.stopPropagation()})});
+function place(){if(!last||innerWidth<=600)return;const r=last.getBoundingClientRect(),w=Math.min(360,innerWidth-16);
+let x=Math.min(Math.max(8,r.left),innerWidth-w-8),y=r.bottom+8;if(y+pop.offsetHeight>innerHeight-8)y=Math.max(8,r.top-pop.offsetHeight-8);
+pop.style.left=x+'px';pop.style.top=y+'px'}
+pop.querySelector('.x').addEventListener('click',close);
+document.getElementById('popg').addEventListener('click',()=>{pop.style.display='none'});
+document.addEventListener('click',e=>{if(pop.style.display==='block'&&!pop.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pop.style.display==='block')close()});
+addEventListener('scroll',()=>{if(pop.style.display==='block')place()},{passive:true});
+// visor de imágenes
+const Z=[...document.querySelectorAll('.zoom')],lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbc=document.getElementById('lbc');let zi=0;
+const show=i=>{zi=(i+Z.length)%Z.length;const b=Z[zi],im=b.querySelector('img'),fc=b.closest('figure')&&b.closest('figure').querySelector('figcaption');lbi.src=im.src;lbi.alt=im.alt;lbc.textContent=b.dataset.cap||(fc?fc.textContent:im.alt)};
+Z.forEach((b,i)=>b.addEventListener('click',()=>{show(i);try{lb.showModal()}catch(e){lb.setAttribute('open','')}}));
+document.getElementById('lbp').onclick=()=>show(zi-1);document.getElementById('lbn').onclick=()=>show(zi+1);document.getElementById('lbx').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(zi-1);if(e.key==='ArrowRight')show(zi+1)});
+// fuego y agua
+const F=[['fuego1','Nacimiento volcánico: el cono del Zurquí arroja lava y ceniza.'],['fuego2','Lluvia y aludes: el agua desgasta el volcán durante cientos de miles de años.'],['fuego3','Lagunas colgantes y manantiales: el agua queda guardada en la montaña.'],['fuego4','Paisaje fértil: sobre suelos volcánicos se asientan las comunidades.']];
+const st=document.getElementById('steps'),sc=document.getElementById('stepcap');
+st.innerHTML=F.map((f,i)=>`<button aria-pressed="false" aria-label="Paso ${i+1}"><img src="img/${f[0]}.jpg" alt="${f[1]}" loading="lazy" width="453" height="553"></button>`).join('');
+const pick=i=>{st.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));sc.textContent=(i+1)+'. '+F[i][1]};
+st.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>pick(i)));pick(0);
+// reloj de tiempo profundo: un día lineal de 00:00 (hace 500.000 años) a 24:00 (hoy)
+const NOW=2026,SPAN=500000,DAY=86400;
+const E=[[500000,'El paleovolcán Zurquí en actividad','c2','nat'],[20000,'Primeras personas llegan a América','c3','nat'],[12000,'Cazadores en Turrialba y Sarapiquí','c3','nat'],[2300,'Primeros alfareros en Santa Elena','c4','ind'],[NOW-1030,'Pueblo de Pará Grande (C14: ~1030 d.C.)','c4','ind'],[NOW-1569,'Reparto de encomiendas (1569)','c5','col'],[NOW-1787,'Mojones de Tibás (1787)','c6','col'],[NOW-1841,'Plano y mojón de Cooper (1841)','c7','rep'],[NOW-1905,'San Isidro es cantón (1905)','c8','rep'],[NOW-1978,'Nace el Parque Braulio Carrillo (1978)','c2','rep'],[0,'Hoy','c9','hoy']];
+const sec=a=>DAY*(1-a/SPAN); // segundo del día en que cae el hecho
+const hhmmss=a=>{let s=Math.round(sec(a));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return [h,m,x].map(v=>String(v).padStart(2,'0')).join(':')};
+const ago=a=>a===0?'el presente':'hace '+String(a).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' años (AP)';
+const evs=document.getElementById('evs'),ro=document.getElementById('readout'),bars=document.getElementById('bars');
+evs.innerHTML=E.map((e,i)=>`<li><button aria-pressed="false" data-i="${i}"><span class="h">${hhmmss(e[0])}</span><span>${e[1]}<br><span class="small">${ago(e[0])}</span></span></button></li>`).join('');
+// tres escalas: el día entero, la última hora y los últimos 3 minutos
+const B=[{t:'El día completo',a:0,b:DAY,ticks:[[0,'00:00'],[21600,'06:00'],[43200,'12:00'],[64800,'18:00'],[DAY,'24:00']],zoom:[DAY-3600,DAY],zl:'última hora'},
+{t:'Lupa: la última hora',a:DAY-3600,b:DAY,ticks:[[DAY-3600,'23:00'],[DAY-2700,'23:15'],[DAY-1800,'23:30'],[DAY-900,'23:45'],[DAY,'24:00']],zoom:[DAY-180,DAY],zl:'últimos 3 min'},
+{t:'Lupa: los últimos 3 minutos',a:DAY-180,b:DAY,ticks:[[DAY-180,'23:57'],[DAY-120,'23:58'],[DAY-60,'23:59'],[DAY,'24:00']]}];
+const pct=(s,b)=>(s-b.a)/(b.b-b.a)*100;
+const drawBars=sel=>{bars.innerHTML=B.map(b=>{
+const ticks=b.ticks.map(([s,l])=>`<span class="tk" style="left:${pct(s,b)}%">${l}</span>`).join('');
+const z=b.zoom?`<span class="zw" style="left:${pct(b.zoom[0],b)}%;width:${pct(b.zoom[1],b)-pct(b.zoom[0],b)}%"></span><span class="zl">${b.zl} ↓</span>`:'';
+const dots=E.map((e,i)=>{const s=sec(e[0]);if(s<b.a-1||s>b.b+1)return'';const x=Math.min(100,Math.max(0,pct(s,b)));return `<button class="dot ${e[3]}${i===sel?' on':''}" style="left:${x}%" data-i="${i}" aria-label="${e[1]}, ${hhmmss(e[0])}" title="${e[1]}"></button>`}).join('');
+return `<div class="bar"><p class="bt">${b.t}</p><div class="track">${z}${dots}</div><div class="tks">${ticks}</div></div>`}).join('');
+bars.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>pickE(+d.dataset.i)))};
+const pickE=i=>{evs.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));const e=E[i];
+ro.innerHTML=`<b>${hhmmss(e[0])}</b> · ${e[1]}<br><span class="small">${ago(e[0])} · <a href="#${e[2]}">ir al capítulo</a></span>`;drawBars(i)};
+evs.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>pickE(+b.dataset.i)));
+pickE(8);
+}
+</script>
+</body>
+</html>
