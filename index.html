@@ -10,7 +10,7 @@
 <link rel="icon" href="img/logo-ucasi.jpg">
 <meta property="og:type" content="website"><meta property="og:locale" content="es_CR">
 <meta property="og:title" content="De la Gran Toyopán al presente: historia de San Isidro de Heredia">
-<meta property="og:description" content="500.000 años en un día, nueve capítulos, glosario y las voces de la comunidad.">
+<meta property="og:description" content="23.000 años de presencia humana en un día, nueve capítulos, mapas, glosario y las voces de la comunidad.">
 <meta property="og:image" content="https://recorrido.historiadesanisidrodeheredia.com/img/macizo.jpg">
 <meta property="og:url" content="https://recorrido.historiadesanisidrodeheredia.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -20,7 +20,7 @@
 <style>
 /* VOICE: un museo comunitario al aire libre: cálido, preciso, honesto sobre lo que se sabe y lo que no.
    IDEA: un corte estratigráfico del Zurquí: se baja por capas de tiempo, de la lava a la plaza.
-   PICTURE: los cerros del macizo de Barva en capas de niebla; un reloj de 24 h que comprime 500.000 años.
+   PICTURE: los cerros del macizo de Barva en capas de niebla; un reloj de 24 h que comprime los 23.000 años de presencia humana en América.
    COLOUR and TYPE: verde de bosque nuboso profundo, blanco papel, rojo arcilla de Pará Grande, oro de la rana; Newsreader + Public Sans.
    LAYOUT: portada a sangre, reloj interactivo, capítulos con riel de estratos, vitrina, glosario buscable, pie completo. */
 :root{color-scheme:light dark;
@@ -111,6 +111,7 @@ figcaption{font-size:14px;color:var(--mute);margin-top:6px}
 .stepcap{min-height:3.2em;font-size:16px}
 /* vitrina */
 .vit{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:12px 0 6px}.vit figure{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px}.vit img{aspect-ratio:4/3;object-fit:contain;background:#f2f0ea}
+.vit.maps{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}.vit.maps figure:first-child{grid-column:1/-1}.vit.maps img{aspect-ratio:3/2;background:#fbfbf9}
 details.arch{margin:6px 0 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
 details.arch>summary{cursor:pointer;padding:14px 18px;font-weight:700;min-height:44px;list-style-position:inside}
 details.arch>summary:focus-visible{outline:3px solid var(--gold)}
@@ -213,7 +214,7 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div class="txt">
 <h1>De la Gran Toyopán al presente</h1>
 <p>La historia de San Isidro de Heredia empieza en el fuego de un volcán que ya no existe y llega hasta la plaza, el café y las voces de hoy. Recorrela por capas, como quien baja por un corte de tierra.</p>
-<div class="btns"><a class="btn fill" href="#capitulos">Empezar el recorrido</a><a class="btn" href="#reloj">Ver 500.000 años en un día</a></div>
+<div class="btns"><a class="btn fill" href="#capitulos">Empezar el recorrido</a><a class="btn" href="#reloj">Ver 23.000 años en un día</a></div>
 <div class="facts"><span><b>26,96 km²</b>superficie del cantón</span><span><b>4</b>distritos</span><span><b>1.330–1.390 m</b>sobre el nivel del mar</span><span><b>1905</b>año del cantonato</span></div>
 <p class="by">Investigación y recorrido: <b>Alfredo Montero Fonseca</b> · Antropos</p>
 </div>
@@ -224,12 +225,13 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <section id="reloj" class="band clock"><div class="wrap cgrid">
 <div>
 <h2>Si toda esta historia cupiera en un solo día</h2>
-<p>Imaginá que los 500.000 años desde que el <button class="t" data-g="paleovolcan">paleovolcán</button> Zurquí estaba activo son un solo día: el volcán está a las 00:00 y hoy es la medianoche siguiente, las 24:00. Cada segundo equivale a casi seis años. Casi toda la historia humana cabe en la última media hora, así que abajo hay dos lupas.</p>
+<p>Imaginá que los 23.000 años desde las huellas humanas más antiguas de América, las de White Sands (Nuevo México), son un solo día: esas huellas están a las 00:00 y hoy es la medianoche siguiente, las 24:00. Cada hora equivale a casi un milenio y cada minuto a unos 16 años. El pueblo de Pará Grande aparece cerca de las once de la noche, y todo lo ocurrido desde la Conquista cabe en la última media hora: por eso abajo hay dos lupas.</p>
+<div class="keep"><b>¿Y el volcán?</b>En este reloj el <button class="t" data-g="paleovolcan">paleovolcán</button> Zurquí no cabe: su actividad quedaría entre dos y tres semanas antes de las 00:00. Nuestra especie, <i>Homo sapiens</i>, surgió en África unos doce días antes. La historia humana de este territorio es un instante sobre un suelo muy antiguo.</div>
 <div class="readout" id="readout" aria-live="polite"></div>
 <ul class="evs" id="evs"></ul>
-<p class="small">Escala: 1 día = 500.000 años; 1 segundo ≈ 5,8 años. AP significa “antes del presente”; en arqueología el presente convencional es 1950, aquí contamos desde 2026 para simplificar. Las fechas antiguas son aproximadas.</p>
+<p class="small">Escala: 1 día = 23.000 años; 1 hora ≈ 958 años; 1 minuto ≈ 16 años; 1 segundo ≈ 97 días. El inicio usa el extremo más antiguo del rango de White Sands (21.000–23.000 años), una fecha que parte de la comunidad científica todavía discute. AP significa “antes del presente”; en arqueología el presente convencional es 1950, aquí contamos desde 2026 para simplificar. Las fechas antiguas son aproximadas.</p>
 </div>
-<div><div class="bars" id="bars" role="group" aria-label="El día de 500.000 años en tres escalas"></div><div class="legend small"><span><i class="dot nat"></i>naturaleza y primeros pobladores</span><span><i class="dot ind"></i>época indígena</span><span><i class="dot col"></i>Colonia</span><span><i class="dot rep"></i>República y siglo XX</span><span><i class="dot hoy"></i>hoy</span></div></div>
+<div><div class="bars" id="bars" role="group" aria-label="El día de 23.000 años en tres escalas"></div><div class="legend small"><span><i class="dot nat"></i>primeros pobladores</span><span><i class="dot ind"></i>época indígena</span><span><i class="dot col"></i>Colonia</span><span><i class="dot rep"></i>República y siglo XX</span><span><i class="dot hoy"></i>hoy</span></div></div>
 </div></section>
 
 <section id="capitulos" class="band"><div class="wrap">
@@ -256,6 +258,7 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <h3>El volcán que ya no existe</h3>
 <p>La Ruta 32 atraviesa los restos de un volcán extinto que estuvo activo hace unos 400.000 a 500.000 años. Los geólogos lo llaman el “abuelo” del Volcán Barva, que creció encima de él. El Zurquí, Patio de Agua y otros picos son <button class="t" data-g="relicto">relictos</button> de ese único cono.</p>
 <p>¿Quién lo deshizo? El agua. El Braulio Carrillo recibe casi 11 metros de lluvia al año, la segunda cifra más alta del país. Esa lluvia, durante cientos de miles de años, causó <button class="t" data-g="erosion">erosión</button> y deslizamientos hasta borrar el cono. De esa historia de fuego y agua vienen los suelos fértiles y los <button class="t" data-g="acuifero">acuíferos</button> de San Isidro, formados por coladas de lava, <button class="t" data-g="lahar">lahares</button> y depósitos volcánicos.</p>
+<p class="small">Este capítulo queda fuera del reloj de arriba: ocurrió entre dos y tres semanas “antes” de que empezara ese día.</p>
 <div class="keep"><b>Para recordar</b>En 1909, Octavio Quesada acampó en el Zurquí y escribió que talar el cerro era “un crimen enorme”: antes, dijo, la tierra “sudaba agua”. El Parque Braulio Carrillo se creó casi setenta años después, en 1978.</div>
 <div class="ev"><span class="doc">Informe de Quesada (1910)</span><span class="oral">Rafael Bolaños (2024)</span><span class="ia">Ilustraciones de 2025</span></div>
 <a class="more" href="https://historiadesanisidrodeheredia.com/historia/hace-500000-anos/">Leer el capítulo completo →</a>
@@ -269,24 +272,35 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 </div></article>
 
 <article class="chap" id="c3">
-<div class="rail"><div class="n">3</div><div><div class="era">Primeros pobladores</div><div class="yr">hace 12.000 años</div></div><div class="strata" style="background:#8c6a3c"></div></div>
-<div class="cols"><div>
+<div class="rail"><div class="n">3</div><div><div class="era">Primeros pobladores</div><div class="yr">hace 23.000–3.000 años</div></div><div class="strata" style="background:#8c6a3c"></div></div>
+<div><div class="cols"><div>
 <h3>Orígenes lejanos</h3>
-<p>Las primeras personas llegaron a América hace más de 20.000 años desde Asia. En Costa Rica, hallazgos en Turrialba y Sarapiquí muestran gente que vivía de cazar y recolectar hace unos 12.000 años, con <button class="t" data-g="clovis">puntas Clovis</button>.</p>
+<p>Nuestra especie surgió en África hace unos 300.000 años y tardó decenas de miles en poblar Asia, Australia y Europa. América fue el último continente al que llegó: sus primeros pobladores vinieron del noreste de Asia por <button class="t" data-g="beringia">Beringia</button>, una tierra que hoy cubre el mar.</p>
+<p>¿Cuándo? La respuesta ha cambiado. Durante décadas se habló de unos 13.000 años. Hoy, las huellas humanas de White Sands (Nuevo México), fechadas entre 21.000 y 23.000 años por tres métodos distintos, llevan esa llegada a plena <button class="t" data-g="glaciacion">glaciación</button>. No todos los especialistas aceptan todavía esa fecha.</p>
+<p>En Costa Rica, lo más antiguo está en la vertiente del Caribe. En Siquirres, un carbón hallado junto a herramientas de piedra dio unos 12.200 años. En Turrialba hay un taller con <button class="t" data-g="clovis">puntas Clovis</button>, de tradición norteamericana, y <button class="t" data-g="coladepez">puntas “cola de pez”</button>, de tradición sudamericana; otra cola de pez apareció en La Virgen de Sarapiquí. Desde el principio, el istmo fue lugar de encuentro.</p>
 <p>En San Isidro, sobre todo en Santa Elena y Pará Grande, hay evidencia de asentamiento de al menos 1000 a.C. El territorio era un corredor de caminos <button class="t" data-g="precolombino">precolombinos</button> hacia Turrialba y Limón.</p>
 </div><div>
+<div class="keep"><b>Para recordar</b>Entre las huellas de White Sands y los cazadores de Siquirres pasaron más de 10.000 años: el doble de lo que nos separa de las pirámides de Egipto.</div>
 <div class="keep"><b>Lo que cuenta la memoria</b>La tradición oral habla de la Cueva del Indio y del Dueño del Monte. Este capítulo crecerá con fuentes arqueológicas y testimonios.</div>
-<div class="ev"><span class="arq">Arqueología regional</span><span class="oral">Tradición oral</span></div>
+<div class="ev"><span class="arq">White Sands (Science, 2021 y 2023)</span><span class="arq">Snarskis (1979)</span><span class="arq">León Coto (2007)</span><span class="arq">Rescate del P. H. Reventazón</span><span class="oral">Tradición oral</span></div>
 <a class="more" href="https://historiadesanisidrodeheredia.com/historia/origenes-lejanos/">Leer el capítulo completo →</a>
-</div></div></article>
+</div></div>
+<p style="font-weight:700;margin:22px 0 0">El desplazamiento humano, en tres mapas</p>
+<div class="vit maps">
+<figure><button class="zoom"><img src="img/mapa-africa-america.svg" alt="Mapa del mundo con las rutas de dispersión de Homo sapiens desde África: hacia Europa, Asia oriental y Australia, y por Siberia y Beringia hasta América, con White Sands, Costa Rica y Monte Verde señalados" loading="lazy" width="1200" height="800"></button><figcaption>De África a América: América fue el último continente poblado. Fechas en miles de años antes del presente.</figcaption></figure>
+<figure><button class="zoom"><img src="img/mapa-entrada-america.svg" alt="Mapa de América durante la última glaciación, con las capas de hielo sobre Norteamérica, el puente de Beringia, la ruta costera del Pacífico y el corredor interior entre hielos" loading="lazy" width="1200" height="800"></button><figcaption>La entrada a un continente con hielo: la ruta de la costa y el corredor interior.</figcaption></figure>
+<figure><button class="zoom"><img src="img/mapa-istmo.svg" alt="Mapa de Costa Rica con los sitios más antiguos: Turrialba, Siquirres y La Virgen de Sarapiquí, y la ubicación de San Isidro de Heredia; flechas indican la tradición Clovis desde el norte y la cola de pez desde el sur" loading="lazy" width="1200" height="800"></button><figcaption>El istmo, donde se encontraron la tradición del norte y la del sur.</figcaption></figure>
+</div>
+<p class="small">Mapas elaborados para el proyecto en 2026 con datos de Natural Earth. Las rutas, los hielos y Beringia son trazos esquemáticos, y las fechas más antiguas siguen en discusión. Tocá un mapa para verlo en grande.</p>
+</div></article>
 
 <article class="chap" id="c4">
 <div class="rail"><div class="n">4</div><div><div class="era">Época indígena</div><div class="yr">500 a.C.–1500 d.C.</div></div><div class="strata" style="background:#a8402a"></div></div>
 <div><div class="cols"><div>
 <h3>La Gran Toyopán</h3>
 <p>Durante siglos, esta fue una de las zonas más pobladas del país. La arqueología distingue fases: Pavas (500 a.C.–300 d.C.), Curridabat (300–800 d.C.) y Cartago (800–1500 d.C.), cuando se consolidaron los <button class="t" data-g="cacicazgo">cacicazgos</button>. A esos pueblos los cronistas los llamaron <button class="t" data-g="huetares">huetares</button>.</p>
-<p>En las cartas de Juan Vázquez de Coronado aparece Yurustí, que llegó a su encuentro con unos 35 guerreros. Según el historiador Rafael Bolaños, era un <button class="t" data-g="ibux">ibux</button> subordinado al cacique Garabito, con residencia en Toyopán, en las nubes de Coronado. La “Gran Toyopán” que daría nombre a la región es una <button class="t" data-g="hipotesis">hipótesis de trabajo</button>, no un hecho cerrado.</p>
-<p>Por el camino del <button class="t" data-g="cuascua">Cuascuá</button>, que subía por el Zurquí hacia Guápiles y Matina, circulaban sal, tortuga, plumas, oro y cerámica pintada.</p>
+<p>En las cartas de Juan Vázquez de Coronado aparece Yurustí, que llegó a su encuentro con unos 35 guerreros. Según el historiador Rafael Bolaños, era un <button class="t" data-g="ibux">ibux</button> subordinado al cacique Garabito, con residencia en Toyopán, en las nubes de Coronado. La “Gran Toyopán” que daría nombre a la región, y que abarcaría lo que hoy son San Isidro, Santo Domingo, Moravia, Coronado y San Jerónimo, es una <button class="t" data-g="hipotesis">hipótesis de trabajo</button>, no un hecho cerrado.</p>
+<p>Por el camino del <button class="t" data-g="cuascua">Cuascuá</button>, que subía por el Zurquí hacia Guápiles y Matina, circulaban sal, tortuga, plumas, oro y cerámica pintada. Según Bolaños, Cuascuá era también el nombre del bosque sagrado que subía hasta el macizo del Barva; de ahí vendría la costumbre de pedir permiso antes de entrar a la montaña.</p>
 </div><div>
 <div class="keep"><b>Para recordar</b>En el sitio Pará Grande (Santa Elena), excavado en 2012, apareció un colgante de oro en forma de rana de 41 mm, cerca del ajuar más rico del cementerio. Un fechamiento por <button class="t" data-g="c14">carbono 14</button> lo ubica hacia el año 1030.</div>
 <div class="ev"><span class="arq">Museo Nacional (2012–2013)</span><span class="doc">Cartas de Vázquez de Coronado</span><span class="oral">Rafael Bolaños (2024)</span><span class="hip">Gran Toyopán</span></div>
@@ -315,7 +329,7 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div><b>Pará</b><span>“zacate largo”, según Bolaños.</span></div>
 <div><b>Parasito</b><span>“zacate más bajito”.</span></div>
 <div><b>Tures</b><span>asistente de Yurustí; hoy un río, un puente y un distrito.</span></div>
-<div><b>Toyopán</b><span>a veces traducido “lugar de los altares”; su origen sigue en discusión.</span></div>
+<div><b>Toyopán</b><span>a veces traducido “lugar de los altares”; sigue en discusión si su origen es náhuatl o chibcha.</span></div>
 </div>
 <p class="small" style="margin-top:10px">Etimologías de fuente oral, sujetas a verificación. Ver <button class="t" data-g="toponimo">topónimo</button>.</p>
 </div></article>
@@ -324,12 +338,14 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div class="rail"><div class="n">5</div><div><div class="era">Conquista y Colonia</div><div class="yr">siglos XVI–XVII</div></div><div class="strata" style="background:#6b5b4b"></div></div>
 <div class="cols"><div>
 <h3>El reparto y el alférez</h3>
-<p>El 12 de enero de 1569, el gobernador Perafán de Rivera repartió a la población indígena del Valle Central en 108 <button class="t" data-g="encomienda">encomiendas</button>: unas 23.700 personas entregadas a 85 españoles. Entre 1570 y 1575 se concentró a los pueblos en <button class="t" data-g="reduccion">reducciones</button>, como Barva.</p>
+<p>El 12 de enero de 1569, el gobernador Perafán de Rivera repartió a la población indígena del Valle Central en 108 <button class="t" data-g="encomienda">encomiendas</button>: unas 23.700 personas asignadas a 85 españoles. Lo que se repartió fue su tributo, en trabajo y bienes, no la tierra, y solo por “dos vidas”. Entre 1570 y 1575 se concentró a los pueblos en <button class="t" data-g="reduccion">reducciones</button>, como Barva.</p>
 <p>La explotación y las epidemias causaron un descenso enorme. Las estimaciones de la población original chocan entre sí: unas 400.000 personas según William Denevan; 22.700 según el obispo Bernardo Thiel.</p>
-<p>En el siglo XVII se asentaron <button class="t" data-g="criollo">criollos</button> y españoles en el “Rincón de Tibás”. Uno de ellos, el <button class="t" data-g="alferez">alférez real</button> Sebastián de Zamora, llegó a tener una gran <button class="t" data-g="hacienda">hacienda</button>. Su esposa Luisa de Quintana murió en La Quintana en 1723: de ella viene el nombre de esa calle.</p>
+<p>En el siglo XVII se asentaron <button class="t" data-g="criollo">criollos</button> y españoles en el “Rincón de Tibás”. Uno de ellos fue el <button class="t" data-g="alferez">alférez real</button> Sebastián de Zamora, natural de Marchena, en Andalucía. Las genealogías lo sitúan entre 1630 y 1696 y le registran dos matrimonios: primero con Lucía de Ocampo Sandoval (<button class="t" data-g="cartadotal">carta dotal</button> de 1661) y después con Luisa de Quintana, de quien viene el nombre de la calle de la Quintana. Su familia llegó a tener una gran <button class="t" data-g="hacienda">hacienda</button>.</p>
+<p>¿De dónde salieron esas tierras? No de la encomienda. En el valle de Barva, la tierra llegó a estas familias durante el siglo XVII por repartos de potreros, <button class="t" data-g="composicion">composiciones</button> y compras; una ficha del Archivo Nacional registra que Zamora y Lucía de Ocampo compraron un sitio de ganado.</p>
 </div><div>
-<div class="keep"><b>Preguntas abiertas</b>¿Cuándo vivió el alférez Sebastián de Zamora? Las fuentes apuntan tanto a 1576 como a fines del siglo XVII. Y Bolaños señala que la familia tuvo familias esclavizadas en Santo Domingo: falta documentarlo en archivo.</div>
-<div class="ev"><span class="doc">Fonseca, Alvarenga y Solórzano (2002)</span><span class="oral">Rafael Bolaños (2024)</span></div>
+<div class="keep"><b>Preguntas abiertas</b>Una se cerró en lo esencial: el alférez es del siglo XVII, no de 1576. Quedan otras. ¿Qué tierras entraron por cada matrimonio? La carta dotal de 1661 podría responderlo. ¿Cuándo murió Luisa de Quintana? Bolaños dice que en 1723, en La Quintana; las genealogías registran que testó en 1700. Y Bolaños señala que la familia tuvo familias esclavizadas en Santo Domingo: falta documentarlo en archivo.</div>
+<div class="ev"><span class="doc">Fonseca, Alvarenga y Solórzano (2002)</span><span class="doc">Sibaja (1983)</span><span class="doc">Prado (1941)</span><span class="doc">Sanabria (1957), genealogía compilada</span><span class="oral">Rafael Bolaños (2024)</span></div>
+<p class="small">Las fechas de Sanabria son compilación genealógica: orientan, pero falta cotejarlas con los documentos originales.</p>
 <a class="more" href="https://historiadesanisidrodeheredia.com/historia/conquista-y-colonia/">Leer el capítulo completo →</a>
 </div></div></article>
 
@@ -338,7 +354,8 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div class="cols"><div>
 <h3>Tabaco y tierras de Tibás</h3>
 <p>Según Bolaños, el tabaco empujó a familias del oeste de Heredia hacia San Isidro, Tures, Pará y La Palma. Vendían a la <button class="t" data-g="factoria">factoría</button> del gobierno; cuando la Corona prohibió sembrar fuera de zonas autorizadas, hubo contrabando por los pasos del Virilla.</p>
-<p>Del 23 al 25 de agosto de 1787, el <button class="t" data-g="juez">juez subdelegado</button> Josef Antonio Oreamuno midió las tierras <button class="t" data-g="realengas">realengas</button> de Tibás y puso cuatro <button class="t" data-g="mojon">mojones</button>, uno en tres higuerones y un cedro. En total, 54 <button class="t" data-g="caballeria">caballerías</button>. Unas 380 personas aportaron dinero para comprarlas en <button class="t" data-g="remate">remate</button>.</p>
+<p>En 1710, Antonio Aurelio de Zamora, hijo del alférez y morador del Rincón de Tibás, pidió medir tierras “de pan llevar y sabana” en las quebradas de la Bermuda y Tures. Murió antes de que llegaran los títulos confirmados; los vecinos interesados tuvieron que ganarlos en un pleito, y en 1723 ya se otorgaba una escritura de venta junto a la Bermuda.</p>
+<p>Del 23 al 25 de agosto de 1787, el <button class="t" data-g="juez">juez subdelegado</button> Josef Antonio Oreamuno midió las tierras <button class="t" data-g="realengas">realengas</button> de Tibás y puso cuatro <button class="t" data-g="mojon">mojones</button>, uno en tres higuerones y un cedro. En total, 54 <button class="t" data-g="caballeria">caballerías</button>. En 1788, un auto dictado en Granada y León (Nicaragua) declaró realengas 52 de ellas y ordenó venderlas en <button class="t" data-g="remate">remate</button>, a 30 tostones cada una. Un libro de asientos llevado entre 1787 y 1793 anota a unas 380 personas que aportaron dinero para comprarlas.</p>
 <p>En 1795 el título se declaró de toda la comunidad, como <button class="t" data-g="comun">tierras del común</button>. Lo que faltaba pagar lo adelantaron los cosecheros de tabaco: 255 pesos y 6 reales, devueltos en público el 24 de diciembre de 1796.</p>
 </div><div>
 <div class="keep"><b>Hallazgo del proyecto</b>En una petición de marzo de 1801 aparecen vecinos de “Saca de Agua”: casi treinta años antes de la mención que se creía la primera (1829).</div>
@@ -351,15 +368,15 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div class="rail"><div class="n">7</div><div><div class="era">Época republicana</div><div class="yr">1818–1896</div></div><div class="strata" style="background:#5d4a33"></div></div>
 <div class="cols"><div>
 <h3>Agua para el café</h3>
-<p>En 1818 un sorteo del ayuntamiento de Heredia fijó nombres de pueblos: el Rincón de Tibás pasó a ser Santo Domingo. Hacia 1830, San Isidro tenía unos 420 habitantes.</p>
+<p>En 1818 un sorteo del ayuntamiento de Heredia fijó nombres de pueblos: el Rincón de Tibás pasó a ser Santo Domingo. Hacia 1830, San Isidro tenía unos 420 habitantes, y en 1848 un acta municipal ya lo cita como distrito parroquial.</p>
 <p>En 1841 el agrimensor Henrique Cooper midió las tierras de Tibás y dejó un <button class="t" data-g="calicanto">mojón de calicanto</button> en las faldas del Zurquí, que todavía se puede visitar. Ese mismo año, el marino William Le Lacheur hizo la primera exportación directa de café de Costa Rica a Londres.</p>
 <p>Los beneficios necesitaban agua. Financiaron una zanja desde el río Tibás con presa y un canal largo; de él salían ramales, las <button class="t" data-g="saca">sacas</button>, para cada beneficio. De ahí, probablemente, el nombre de La Saca.</p>
-<p>El archivo sigue el rastro: “Saca de Agua” ya era un vecindario en 1801; en 1830 la municipalidad de Heredia nombró una comisión para inspeccionar la saca de agua de Santo Domingo y San Pablo; y en 1902 vecinos de Las Cruces se negaron a pagar dos presas de “la saca”, que señalaban como límite con San Isidro.</p>
-<p>La ermita se bendijo en 1863 y San Isidro fue <button class="t" data-g="parroquia">parroquia</button> en 1866. En 1894 se puso la primera piedra del templo neogótico, con estructura metálica traída de Alemania.</p>
+<p>El archivo sigue el rastro: “Saca de Agua” ya era un vecindario en 1801; en 1829 se vendió un sitio en el “paraje de la Saca de Agua”; en 1830 la municipalidad de Heredia nombró una comisión para inspeccionar la saca de agua de Santo Domingo y San Pablo; en 1856 la resolución de límites de Santo Domingo usa “la saca de agua” como punto del lindero; y en 1902 vecinos de Las Cruces se negaron a pagar dos presas de “la saca”, que señalaban como límite con San Isidro.</p>
+<p>En 1861 se trazaron los cuadrantes de la ermita y el caserío. La ermita se bendijo en 1863 y San Isidro fue <button class="t" data-g="parroquia">parroquia</button> en 1866. En 1894 se puso la primera piedra del templo neogótico, con estructura metálica traída de Alemania.</p>
 </div><div>
 <figure><img src="img/mojon.jpg" alt="Mojón de piedra cubierto de musgo en el bosque del Zurquí" loading="lazy" width="470" height="725"><figcaption>El mojón de Cooper en el bosque del Zurquí. Foto: archivo del proyecto.</figcaption></figure>
 <div class="keep" style="margin-top:14px"><b>Cuando memoria y archivo no coinciden</b>Vecinos de La Rinconada recuerdan que los mojones se pusieron en 1834 o 1839; el plano dice 1841. Bolaños fecha a Le Lacheur en 1835; la BBC, en 1841. El proyecto deja ambas diferencias a la vista. Sobre La Saca, una vecina rechaza la versión popular de que el nombre viene de “sacar guaro”: el topónimo ya existía en 1801.</div>
-<div class="ev"><span class="doc">Plano de Cooper (1841)</span><span class="doc">Archivo Nacional (1801, 1830, 1902)</span><span class="oral">Vecinos de La Rinconada y San Francisco</span></div>
+<div class="ev"><span class="doc">Plano de Cooper (1841)</span><span class="doc">Archivo Nacional (1801, 1830, 1902)</span><span class="doc">Villegas Arias (2023)</span><span class="doc">Resolución de límites (1856)</span><span class="oral">Vecinos de La Rinconada y San Francisco</span></div>
 <a class="more" href="https://historiadesanisidrodeheredia.com/historia/epoca-republicana/">Leer el capítulo completo →</a>
 </div></div></article>
 
@@ -367,13 +384,13 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div class="rail"><div class="n">8</div><div><div class="era">Cantón y siglo XX</div><div class="yr">1896–2011</div></div><div class="strata" style="background:#3d3a34"></div></div>
 <div class="cols"><div>
 <h3>Cuatro solicitudes y un cantón</h3>
-<p>Los vecinos pidieron ser <button class="t" data-g="canton">cantón</button> en 1896, 1903 y 1904, y les dijeron que no. El 13 de julio de 1905, la Ley N.º 40 declaró a San Isidro cantón sexto de Heredia; el primer concejo se reunió el 15 de setiembre.</p>
-<p>En 1909, Santo Domingo quiso correr el límite. Octavio Quesada recorrió la zona con vecinos y un <button class="t" data-g="vaquiano">vaquiano</button>, y en 1910 recomendó mantener la línea de 1856. Si no, San Isidro habría perdido a San Josecito, su iglesia y hasta su cementerio.</p>
+<p>Los vecinos pidieron ser <button class="t" data-g="canton">cantón</button> en 1896, cuando ya eran unos 3.000 habitantes con templo, telégrafo y seis comercios, y de nuevo en 1903 y 1904. Les dijeron que no. El 13 de julio de 1905, la Ley N.º 40 declaró a San Isidro cantón sexto de Heredia; el primer concejo se reunió el 15 de setiembre.</p>
+<p>En 1909, Santo Domingo quiso correr el límite. Octavio Quesada recorrió la zona con vecinos y un <button class="t" data-g="vaquiano">vaquiano</button>, y en 1910 recomendó mantener la línea de 1856. Si no, San Isidro habría perdido a San Josecito, su iglesia y hasta su cementerio. Qué resolvió finalmente el Congreso sigue sin localizarse.</p>
 <p>El café mandaba: en 1935 la mitad de la gente vivía en fincas cafetaleras y de 53 beneficios (1887) quedaban seis. La memoria oral recuerda el trabajo infantil desde los 13 años y el de las mujeres; el historiador Lowell Gudmundson lo describe como un <button class="t" data-g="paternalismo">paternalismo</button> que ocultaba el conflicto de clase.</p>
 <p>Luego llegaron la cañería (1924–1928), la Escuela José Martí (1928), la electricidad (1952), la ceniza del Irazú (1963) y el título de ciudad (1970). La población urbana pasó de 26,9 % en 2000 a 94,6 % en 2011.</p>
 </div><div>
 <figure><img src="img/iglesia.jpg" alt="Fotografía antigua en blanco y negro del templo neogótico de San Isidro con gente al frente" loading="lazy" width="1200" height="955"><figcaption>El templo de San Isidro a mediados del siglo XX. Archivo del proyecto; autoría por identificar.</figcaption></figure>
-<div class="ev" style="margin-top:12px"><span class="doc">Ley N.º 40 (1905)</span><span class="doc">Monografía de 1955</span><span class="oral">Entrevistas 2015–2025</span></div>
+<div class="ev" style="margin-top:12px"><span class="doc">Ley N.º 40 (1905)</span><span class="doc">Villegas Arias (2023)</span><span class="doc">Monografía de 1955</span><span class="oral">Entrevistas 2015–2025</span></div>
 <a class="more" href="https://historiadesanisidrodeheredia.com/historia/fundacion-del-canton/">Leer el capítulo completo →</a>
 </div></div></article>
 
@@ -436,7 +453,7 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <div><h3>Cruzar fuentes</h3><p>Cada entrevista se transcribe, se codifica por temas y se contrasta con documentos de archivo.</p></div>
 <div><h3>Nombrar la duda</h3><p>Cuando la memoria y el papel no coinciden, se marca como pregunta abierta en lugar de elegir una versión.</p></div>
 <div><h3>Cuidar a las personas</h3><p>Los temas delicados no se publican, y los audios se publican solo con consentimiento de cada persona.</p></div>
-<div class="open"><h3>Preguntas abiertas</h3><p>¿1835 o 1841 para Le Lacheur? ¿Fue la Gran Toyopán una unidad política? ¿Qué pasó en los setenta años entre la advertencia de Quesada y el parque de 1978?</p></div>
+<div class="open"><h3>Preguntas abiertas</h3><p>¿1835 o 1841 para Le Lacheur? ¿Fue la Gran Toyopán una unidad política? ¿Qué tierras de Tibás entraron por cada matrimonio del alférez Zamora? ¿Qué decidió el Congreso tras el informe de Quesada? ¿Qué pasó en los setenta años entre la advertencia de Quesada y el parque de 1978?</p></div>
 </div>
 </div></section>
 
@@ -465,7 +482,7 @@ footer ul{list-style:none;padding:0;margin:8px 0 0}footer li{margin:6px 0}
 <li><a href="https://historiadesanisidrodeheredia.com/sobre-el-proyecto/">Sobre el proyecto</a></li>
 <li><a href="https://historiadesanisidrodeheredia.com/colabora-con-la-investigacion/">Colaborá</a></li>
 <li><a href="https://antropos.app">Antropos</a></li></ul></div>
-<div class="small" style="color:#9fb2a6">Fotos: archivo del proyecto salvo indicación. © 2026</div>
+<div class="small" style="color:#9fb2a6">Fotos: archivo del proyecto salvo indicación. Actualizado el 16 de noviembre de 2026. © 2026</div>
 </div></footer>
 
 <dialog id="lb" aria-label="Imagen ampliada"><img id="lbi" alt=""><div class="bar"><button id="lbp" aria-label="Anterior">‹</button><p id="lbc"></p><button id="lbn" aria-label="Siguiente">›</button><button id="lbx" aria-label="Cerrar">×</button></div></dialog>
@@ -490,11 +507,16 @@ const G=[
 ['rango','Sociedad de rango','Sociedad donde algunas personas o familias tienen más prestigio y acceso a bienes escasos, lo que se nota, por ejemplo, en tumbas más ricas. No implica necesariamente un jefe sobre varios pueblos.','toy'],
 ['tumbaga','Tumbaga','Aleación de oro y cobre usada por orfebres indígenas desde Colombia hasta Costa Rica.','toy'],
 ['canton','Cantón y cantonato','El cantón es la división administrativa con municipalidad propia; el cantonato es el acto de crearlo. San Isidro lo logró en 1905, a la cuarta solicitud.','can'],
-['clovis','Puntas Clovis','Puntas de piedra tallada de los primeros cazadores de América, con una acanaladura típica en la base. Se hallaron en Turrialba.','ori'],
+['beringia','Beringia','Tierra que unía Siberia y Alaska durante la última glaciación, cuando el mar estaba unos 120 metros más bajo. Por ahí entraron a América sus primeros pobladores; hoy está bajo el estrecho de Bering.','ori'],
+['glaciacion','Última glaciación','Periodo frío en que grandes capas de hielo cubrieron el norte de América y Europa. Su punto máximo fue hace unos 26.000 a 19.000 años.','ori'],
+['clovis','Puntas Clovis','Puntas de piedra tallada de cazadores de tradición norteamericana, de hace unos 13.000 años, con una acanaladura típica en la base. Se hallaron en Turrialba.','ori'],
+['coladepez','Puntas “cola de pez”','Puntas de piedra de tradición sudamericana, con la base en forma de cola de pez. En Costa Rica aparecieron en Turrialba y en La Virgen de Sarapiquí.','ori'],
+['cartadotal','Carta dotal','Documento notarial que detalla los bienes que una mujer llevaba al matrimonio. La de Lucía de Ocampo Sandoval (1661) podría aclarar el origen de las tierras de los Zamora.','col'],
+['composicion','Composición de tierras','Trámite colonial para obtener el título de una tierra pagándole a la Corona. Desde 1591 fue la vía legal para acceder a ella.','col'],
 ['comun','Tierras del común','Tierras de uso colectivo para sacar leña, frutas y plantas medicinales. En Santa Elena todavía llaman a un lugar “el común”.','x18'],
 ['criollo','Criollo','Persona de ascendencia española nacida en América.','col'],
 ['cuascua','Cuascuá','Antiguo camino indígena que unía el Pacífico con el Caribe pasando por Santo Domingo, Santa Elena y el Zurquí. Aparece en planos de 1841 y 1856.','toy'],
-['encomienda','Encomienda','Sistema colonial que entregaba grupos indígenas a un español, quien cobraba tributo en trabajo y bienes. Se otorgaba “por dos vidas”.','col'],
+['encomienda','Encomienda','Sistema colonial que asignaba a un español el tributo, en trabajo y bienes, de un grupo indígena. No daba la propiedad de la tierra y se otorgaba “por dos vidas”.','col'],
 ['enramada','Enramada','Estructura techada con cañas y ramas, levantada en la plaza para fiestas y turnos.','cul'],
 ['erosion','Erosión','Desgaste del terreno por agua, viento o gravedad. La lluvia del Braulio Carrillo borró poco a poco el cono del paleovolcán.','vol'],
 ['etnografia','Etnografía','Método de la antropología que estudia una comunidad conviviendo con ella, observando y conversando.','sobre'],
@@ -513,7 +535,7 @@ const G=[
 ['mojon','Mojón','Señal fija (piedra, árbol o construcción) que marca un límite de tierra. En 1787 uno fueron tres higuerones y un cedro.','x18'],
 ['ocarina','Ocarina','Pequeño instrumento de viento de cerámica, a veces con forma de ave. Aparecieron en tumbas de Pará Grande.','toy'],
 ['ocr','OCR','Reconocimiento óptico de caracteres: programas que convierten la imagen de un texto en texto editable. Siempre hay que revisar sus errores.','x18'],
-['paleovolcan','Paleovolcán','Volcán muy antiguo, extinto y casi borrado por la erosión. El del Zurquí estuvo activo hace unos 400.000–500.000 años.','vol'],
+['paleovolcan','Paleovolcán','Volcán muy antiguo, extinto y casi borrado por la erosión. El del Zurquí estuvo activo hace unos 400.000–500.000 años, mucho antes de que hubiera gente en América.','vol'],
 ['parroquia','Ermita y parroquia','La ermita es una capilla sin cura propio; la parroquia tiene sacerdote y territorio. San Isidro pasó de una a otra entre 1863 y 1866.','rep'],
 ['paternalismo','Paternalismo','Relación en que el patrón trata a sus trabajadores con favores y cercanía personal, lo que suaviza o esconde la desigualdad entre ellos.','can'],
 ['precolombino','Precolombino','Anterior a la llegada de Colón y los europeos a América (1492).','ori'],
@@ -565,18 +587,18 @@ const st=document.getElementById('steps'),sc=document.getElementById('stepcap');
 st.innerHTML=F.map((f,i)=>`<button aria-pressed="false" aria-label="Paso ${i+1}"><img src="img/${f[0]}.jpg" alt="${f[1]}" loading="lazy" width="453" height="553"></button>`).join('');
 const pick=i=>{st.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));sc.textContent=(i+1)+'. '+F[i][1]};
 st.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>pick(i)));pick(0);
-// reloj de tiempo profundo: un día lineal de 00:00 (hace 500.000 años) a 24:00 (hoy)
-const NOW=2026,SPAN=500000,DAY=86400;
-const E=[[500000,'El paleovolcán Zurquí en actividad','c2','nat'],[20000,'Primeras personas llegan a América','c3','nat'],[12000,'Cazadores en Turrialba y Sarapiquí','c3','nat'],[2300,'Primeros alfareros en Santa Elena','c4','ind'],[NOW-1030,'Pueblo de Pará Grande (C14: ~1030 d.C.)','c4','ind'],[NOW-1569,'Reparto de encomiendas (1569)','c5','col'],[NOW-1787,'Mojones de Tibás (1787)','c6','col'],[NOW-1841,'Plano y mojón de Cooper (1841)','c7','rep'],[NOW-1905,'San Isidro es cantón (1905)','c8','rep'],[NOW-1978,'Nace el Parque Braulio Carrillo (1978)','c2','rep'],[0,'Hoy','c9','hoy']];
+// reloj de la presencia humana: un día lineal de 00:00 (hace 23.000 años, huellas de White Sands) a 24:00 (hoy)
+const NOW=2026,SPAN=23000,DAY=86400;
+const E=[[23000,'Huellas humanas en White Sands: gente en América','c3','nat'],[14500,'Campamento de Monte Verde, en el sur de Chile','c3','nat'],[12200,'Cazadores y recolectores en Siquirres y Turrialba','c3','nat'],[2300,'Primeros alfareros en Santa Elena','c4','ind'],[NOW-1030,'Pueblo de Pará Grande (C14: ~1030 d.C.)','c4','ind'],[NOW-1563,'Yurustí ante Vázquez de Coronado (hacia 1563)','c4','ind'],[NOW-1569,'Reparto de encomiendas (1569)','c5','col'],[NOW-1787,'Mojones de Tibás (1787)','c6','col'],[NOW-1841,'Plano y mojón de Cooper (1841)','c7','rep'],[NOW-1905,'San Isidro es cantón (1905)','c8','rep'],[NOW-1978,'Nace el Parque Braulio Carrillo (1978)','c2','rep'],[0,'Hoy','c9','hoy']];
 const sec=a=>DAY*(1-a/SPAN); // segundo del día en que cae el hecho
 const hhmmss=a=>{let s=Math.round(sec(a));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return [h,m,x].map(v=>String(v).padStart(2,'0')).join(':')};
 const ago=a=>a===0?'el presente':'hace '+String(a).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' años (AP)';
 const evs=document.getElementById('evs'),ro=document.getElementById('readout'),bars=document.getElementById('bars');
 evs.innerHTML=E.map((e,i)=>`<li><button aria-pressed="false" data-i="${i}"><span class="h">${hhmmss(e[0])}</span><span>${e[1]}<br><span class="small">${ago(e[0])}</span></span></button></li>`).join('');
-// tres escalas: el día entero, la última hora y los últimos 3 minutos
-const B=[{t:'El día completo',a:0,b:DAY,ticks:[[0,'00:00'],[21600,'06:00'],[43200,'12:00'],[64800,'18:00'],[DAY,'24:00']],zoom:[DAY-3600,DAY],zl:'última hora'},
-{t:'Lupa: la última hora',a:DAY-3600,b:DAY,ticks:[[DAY-3600,'23:00'],[DAY-2700,'23:15'],[DAY-1800,'23:30'],[DAY-900,'23:45'],[DAY,'24:00']],zoom:[DAY-180,DAY],zl:'últimos 3 min'},
-{t:'Lupa: los últimos 3 minutos',a:DAY-180,b:DAY,ticks:[[DAY-180,'23:57'],[DAY-120,'23:58'],[DAY-60,'23:59'],[DAY,'24:00']]}];
+// tres escalas: el día entero, las últimas 3 horas y la última media hora
+const B=[{t:'El día completo (23.000 años)',a:0,b:DAY,ticks:[[0,'00:00'],[21600,'06:00'],[43200,'12:00'],[64800,'18:00'],[DAY,'24:00']],zoom:[DAY-10800,DAY],zl:'últimas 3 horas'},
+{t:'Lupa: las últimas 3 horas (unos 2.900 años)',a:DAY-10800,b:DAY,ticks:[[DAY-10800,'21:00'],[DAY-7200,'22:00'],[DAY-3600,'23:00'],[DAY,'24:00']],zoom:[DAY-1800,DAY],zl:'última media hora'},
+{t:'Lupa: la última media hora (desde 1547)',a:DAY-1800,b:DAY,ticks:[[DAY-1800,'23:30'],[DAY-1200,'23:40'],[DAY-600,'23:50'],[DAY,'24:00']]}];
 const pct=(s,b)=>(s-b.a)/(b.b-b.a)*100;
 const drawBars=sel=>{bars.innerHTML=B.map(b=>{
 const ticks=b.ticks.map(([s,l])=>`<span class="tk" style="left:${pct(s,b)}%">${l}</span>`).join('');
@@ -587,7 +609,7 @@ bars.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>pickE(+d
 const pickE=i=>{evs.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));const e=E[i];
 ro.innerHTML=`<b>${hhmmss(e[0])}</b> · ${e[1]}<br><span class="small">${ago(e[0])} · <a href="#${e[2]}">ir al capítulo</a></span>`;drawBars(i)};
 evs.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>pickE(+b.dataset.i)));
-pickE(8);
+pickE(E.findIndex(e=>e[0]===NOW-1905));
 }
 </script>
 </body>
